@@ -352,15 +352,4 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 100%;
 }
 
-/* 固定日期在右下角 */
-.post-date {
-  position: fixed;  /* 使日期固定在屏幕上 */
-  bottom: 10px;     /* 离底部的距离 */
-  right: 10px;      /* 离右侧的距离 */
-  font-size: 14px;  /* 字体大小 */
-  color: #888;      /* 字体颜色 */
-  background-color: rgba(255, 255, 255, 0.7); /* 背景颜色 */
-  padding: 5px;     /* 内边距 */
-  border-radius: 5px; /* 圆角效果 */
-  z-index: 9999;    /* 确保日期显示在页面上方 */
-}
+
