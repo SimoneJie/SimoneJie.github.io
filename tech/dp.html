@@ -68,8 +68,9 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"></head>
+<body>
     
-		
+        
 <!-- Layouts -->
 
 
@@ -171,9 +172,31 @@ dp[i][(j + a[i]/b[i]) \% 3] =  \left\{
 \end{array}
 \right.
 \]</span> <mark>重点: 最后一步j为0才行，因此前面的每一步就是不断统计取余3后各自为0，1，2的结果</mark></p></li>
-<li><p>完整代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int solution(int n, std::vector&lt;int&gt; a, std::vector&lt;int&gt; b) &#123;</span><br><span class="line">    long long mod = 1e9 + 7;</span><br><span class="line">    vector&lt;vector&lt;int&gt;&gt; dp(n+1, vector&lt;int&gt;(3, 0)); // 全部初始化为0</span><br><span class="line">    dp[0][0] = 1; // 没有card时取余为0，算1种情况</span><br><span class="line">    for(int i = 1; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        for(int j = 0; j &lt;= 2; j ++)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[i][(j+a[i-1]) % 3] = (dp[i][(j+a[i-1]) % 3] + dp[i-1][j]) % mod ;</span><br><span class="line">            dp[i][(j+b[i-1]) % 3] = (dp[i][(j+a[i-1]) % 3] + dp[i-1][j]) % mod;</span><br><span class="line">        &#125;      </span><br><span class="line">    &#125;             </span><br><span class="line"></span><br><span class="line">    return dp[n][0]; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() </span><br><span class="line">&#123;</span><br><span class="line">    std::cout &lt;&lt; (solution(3, &#123;1, 2, 3&#125;, &#123;2, 3, 2&#125;) == 3) &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; (solution(4, &#123;3, 1, 2, 4&#125;, &#123;1, 2, 3, 1&#125;) == 6) &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; (solution(5, &#123;1, 2, 3, 4, 5&#125;, &#123;1, 2, 3, 4, 5&#125;) == 32) &lt;&lt; std::endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">一开始做题时想错，发现了另一个小小不同的过程方法：</span><br><span class="line">for(int i = 1; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        for(int j = 0; j &lt;= 2; j ++)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[i][(j+a[i-1]) % 3] = (dp[i-1][j]) % mod ;</span><br><span class="line">        &#125;</span><br><span class="line">        for(int j = 0; j &lt;= 2; j ++)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[i][(j+b[i-1]) % 3] = (dp[i-1][j] +  dp[i][(j+b[i-1]) % 3]) % mod;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;        </span><br></pre></td></tr></table></figure></li>
+<li><p>代码：</p>
+<details class="custom-block details" style="display: block; position: relative; border-radius: 2px; margin: 1.6em 0px; padding: 1.6em; background-color: rgb(238, 238, 238); color: rgb(44, 62, 80);">
+<summary style="outline: none; cursor: pointer;">
+<p>完整代码(C++)</p>
+</summary>
+<pre><code class="language-cpp"> int solution(int n, std::vector<int> a, std::vector<int> b) &#123;
+ long long mod = 1e9 + 7;     
+ vector<vector<int>> dp(n+1, vector<int>(3, 0)); // 全部初始化为0     
+ dp[0][0] = 1; // 没有card时取余为0，算1种情况     
+ for(int i = 1; i &lt;= n; i++) &#123; 
+     for(int j = 0; j &lt; 3; j++) &#123; 
+         dp[i][(j + a[i-1]) % 3] = (dp[i][(j + a[i-1]) % 3] + dp[i-1][j]) % mod; 
+         dp[i][(j + b[i-1]) % 3] = (dp[i][(j + b[i-1]) % 3] + dp[i-1][j]) % mod; 
+         &#125;     
+     &#125;      
+     return dp[n][0]; 
+ &#125;  
+int main() &#123;     
+ std::cout << (solution(3, &#123;1, 2, 3&#125;, &#123;2, 3, 2&#125;) == 3) << std::endl;     
+ std::cout << (solution(4, &#123;3, 1, 2, 4&#125;, &#123;1, 2, 3, 1&#125;) == 6) << std::endl;     
+ std::cout << (solution(5, &#123;1, 2, 3, 4, 5&#125;, &#123;1, 2, 3, 4, 5&#125;) == 32) << std::endl;     
+ return 0; 
+ &#125;   
+</int></vector<int></int></int></code></pre>
+</details></li>
 </ol>
 <h4 id="section-1">002.</h4>
 <p>日期：25/01/02</p>
@@ -198,7 +221,18 @@ dp[i-1][j-1] + 1 &amp; &amp;{替换}
 \]</span></p>
 <ol start="2" type="1">
 <li><p>完整代码</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line"></span><br><span class="line">int solution(std::string dna1, std::string dna2) &#123;</span><br><span class="line">    int m = dna1.size();</span><br><span class="line">    int n = dna2.size();</span><br><span class="line">    </span><br><span class="line">    // 创建一个 (m+1) x (n+1) 的二维数组 dp</span><br><span class="line">    std::vector&lt;std::vector&lt;int&gt;&gt; dp(m + 1, std::vector&lt;int&gt;(n + 1, 0));</span><br><span class="line">    </span><br><span class="line">    // 初始化 dp 数组的第一行和第一列</span><br><span class="line">    for (int i = 0; i &lt;= m; ++i) &#123;</span><br><span class="line">        dp[i][0] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    for (int j = 0; j &lt;= n; ++j) &#123;</span><br><span class="line">        dp[0][j] = j;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 填充 dp 数组</span><br><span class="line">    for (int i = 1; i &lt;= m; ++i) &#123;</span><br><span class="line">        for (int j = 1; j &lt;= n; ++j) &#123;</span><br><span class="line">            if (dna1[i-1] == dna2[j-1]) &#123;</span><br><span class="line">                dp[i][j] = dp[i-1][j-1];</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                dp[i][j] = std::min(&#123;dp[i-1][j], dp[i][j-1], dp[i-1][j-1]&#125;) + 1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return dp[m][n];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    std::cout &lt;&lt; (solution(&quot;AGCTTAGC&quot;, &quot;AGCTAGCT&quot;) == 2) &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; (solution(&quot;AGCCGAGC&quot;, &quot;GCTAGCT&quot;) == 4) &lt;&lt; std::endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<details class="custom-block details" style="display: block; position: relative; border-radius: 2px; margin: 1.6em 0px; padding: 1.6em; background-color: rgb(238, 238, 238); color: rgb(44, 62, 80);">
+<summary style="outline: none; cursor: pointer;">
+<p>完整代码(C++)</p>
+</summary>
+<pre><code class="language-cpp"> int solution(std::string dna1, std::string dna2) &#123;
+    int m = dna1.size();
+    int n = dna2.size();
+    // 创建一个 (m+1) x (n+1) 的二维数组 dp
+    std::vector<std::vector<int>> dp(m + 1, std::vector<int>(n + 1, 0));
+    // 初始化 dp 数组的第一行和第一列
+    for (int i = 0; i <= m; ++i) &#123; dp[i][0]="i;" &#125; for (int j="0;" <="n;" ++j) dp[0][j]="j;" 填充 dp 数组 i="1;" if (dna1[i-1]="=" dna2[j-1]) dp[i][j]="dp[i-1][j-1];" else dp[i][j-1], dp[i-1][j-1]&#125;) + 1; return dp[m][n]; int main() std::cout << (solution("agcttagc", "agctagct")="=" 2) std::endl; (solution("agccgagc", "gctagct")="=" 4) 0; code></=></int></std::vector<int></code></pre>
+</details>
 <p>ps: 据说这是一个经典的<strong>编辑距离</strong>问题，也称为<strong>Levenshtein距离</strong>。</p></li>
 </ol>
 
@@ -208,6 +242,7 @@ dp[i-1][j-1] + 1 &amp; &amp;{替换}
                 
                 </div>     
             </div>
+            
                      
 
            
@@ -227,6 +262,9 @@ dp[i-1][j-1] + 1 &amp; &amp;{替换}
 </body>
 
 
+ <!-- 页面主体内容 -->
+    
 
- 	
+</body>
+
 </html>
