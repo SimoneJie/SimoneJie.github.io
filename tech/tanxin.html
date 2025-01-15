@@ -153,47 +153,51 @@
             <div class="typo" style="padding: 3rem; position: relative;">
                 <h1 id="greedy">Greedy</h1>
 <hr>
-<ol type="1">
-<li></li>
-</ol>
-<p>日期: 25/01/07</p>
-<p>题目链接：<a target="_blank" rel="noopener" href="https://www.marscode.cn/practice/5www4lxd2k60le?problem_id=7414004855075979308">翻转增益的最大子数组和 - MarsCode</a></p>
-<p>题目内容：</p>
+<h5 id="section">001.</h5>
+<h6 id="日期-250107">日期: 25/01/07</h6>
+<h6 id="题目链接翻转增益的最大子数组和---marscode">题目链接：<a target="_blank" rel="noopener" href="https://www.marscode.cn/practice/5www4lxd2k60le?problem_id=7414004855075979308">翻转增益的最大子数组和 - MarsCode</a></h6>
+<h6 id="题目内容">题目内容：</h6>
 <p>小C面对一个由整数构成的数组，他考虑通过一次操作提升数组的潜力。这个操作允许他选择数组中的任一子数组并将其翻转，目的是在翻转后的数组中找到具有最大和的子数组。小C对这个可能性很感兴趣，并希望知道翻转后的数组中可能得到的最大子数组和是多少。</p>
 <p>例如，数组是 <code>1, 2, 3, -1, 4</code>。小C可以选择翻转子数组 <code>-1, 4</code> 得到 <code>1, 2, 3, 4, -1</code> 或者翻转 <code>1, 2, 3, -1</code> 得到 <code>-1, 3, 2, 1, 4</code>，在这两种情况下，最大的子数组和都是 10。</p>
 <p>备注：子数组 是数组中的一个连续部分。</p>
-<h6 id="输入">输入</h6>
+<p>输入</p>
 <ul>
 <li>N: 数组的长度</li>
 <li>data_array: 一个长度为 N 的整数数组</li>
 </ul>
-<h6 id="输出">输出</h6>
+<p>输出</p>
 <p>请你返回执行翻转操作后（也可以选择不翻转），数组中可能获得的最大子数组和。</p>
-<p>思考：</p>
+<h6 id="思考">思考：</h6>
 <p>最大子数组是一个基础的贪心，即如果前n个元素求和&lt;=0,则放弃，重新从0开始计算，然后找最大和。</p>
 <p>但这里多了一个翻转。既然翻转，那只需要把从翻转开始的后半数组的最大子数组和的开始放到这个翻转的开头就可以了。这样借助一个翻转其实是合并了两个中间断开一次的最大子数组。</p>
 <p>假设从第i个位置开始翻转，前i个最大子数组和记为dpl[i]。后半是从n开始到i的最大子数组和dpr[i]（这个最大子数组从哪里开始累加就从哪里翻转即可）。翻转的位置i可遍历。即:</p>
 <p>result = max(dpl[i] + dpr[i])</p>
-<p>代码：</p>
+<h6 id="代码">代码：</h6>
 <details class="custom-block details" style="display: block; position: relative; border-radius: 2px; margin: 1.6em 0px; padding: 1.6em; background-color: rgb(238, 238, 238); color: rgb(44, 62, 80);">
 <summary style="outline: none; cursor: pointer;">
-完整代码(C++)
+完整代码(Python)
 </summary>
-<pre>
-<p><code class="language-cpp"> def solution(N, data_array): # Please write your code here # Please write your code here assert N == len(data_array) ldp = [0] * N # 用于存储从左到右的最大子数组和 rdp = [0] * N # 用于存储从右到左的最大子数组和</code></p>
-<pre><code>s = 0 # 当前子数组和
+<pre><code class="language-python">def solution(N, data_array):
+    # Please write your code here
+    # Please write your code here
+    assert N == len(data_array)
+    ldp = [0] * N # 用于存储从左到右的最大子数组和
+    rdp = [0] * N # 用于存储从右到左的最大子数组和
+    s = 0 # 当前子数组和
 for i in range(N):
     s += data_array[i]
-    if s &lt; 0:
+    if s < 0:
         s = 0 # 如果子数组和为负，重置为0
     ldp[i] = max(ldp[i - 1], s) if i != 0 else max(0, data_array[i]) # 更新从左到右的最大子数组和
 for i in range(N - 1, -1, -1):
-    rdp[i] = max(data_array[i], rdp[i + 1] + data_array[i]) if i != N - 1 else data_array[i]  # 这里不再使用s是子数组必须包含一个元素，如果全负，就能通过这样选择出一个最小的负数
-ans = float(&#39;-inf&#39;)
+    rdp[i] = max(data_array[i], rdp[i + 1] + data_array[i]) if i != N - 1 else data_array[i]  # 这里不再使用s是因为子数组必须包含一个元素，如果全负，就能通过这样选择出一个最小的负数
+ans = float('-inf')
 for i in range(N - 1):
     ans = max(ans, ldp[i] + rdp[i + 1]) # 计算翻转后的最大子数组和
-return max(ans, max(data_array))</code></pre>
-</pre></details>
+return max(ans, max(data_array))
+  </code></pre>
+</details>
+
                 
                 <div class="post-date" style="position: absolute; top: 10px; right: 10px; font-size: 14px; color: #888; background-color: rgba(255, 255, 255, 0.7); padding: 5px; border-radius: 5px;">
                     2025-01-07

@@ -154,12 +154,12 @@
                 <h1 id="dynamic-programming">Dynamic Programming</h1>
 <hr>
 <h4 id="section">001.</h4>
-<p>日期：24/12/30</p>
-<p>题目链接：<a target="_blank" rel="noopener" href="https://www.marscode.cn/practice/5www4lxd2k60le?problem_id=7424418560665108524">卡牌翻面求和问题 - MarsCode</a></p>
-<p>题目内容：</p>
+<h6 id="日期241230">日期：24/12/30</h6>
+<h6 id="题目链接卡牌翻面求和问题---marscode">题目链接：<a target="_blank" rel="noopener" href="https://www.marscode.cn/practice/5www4lxd2k60le?problem_id=7424418560665108524">卡牌翻面求和问题 - MarsCode</a></h6>
+<h6 id="题目内容">题目内容：</h6>
 <p>​ 小M有 <em>n</em> 张卡牌，每张卡牌的正反面分别写着不同的数字，正面是 <span class="math inline">\(a_i\)</span>，背面是<span class="math inline">\(b_i\)</span>。小M希望通过选择<mark>每张卡牌</mark>的一面，使得所有向上的数字之和可以被3整除。你需要告诉小M，一共有多少种不同的方案可以满足这个条件。由于可能的方案数量过大，结果需要对 <span class="math inline">\(10^9+7\)</span>取模。</p>
 <p>​ 例如：如果有3张卡牌，正反面数字分别为 <code>(1,2)</code>，<code>(2,3)</code> 和 <code>(3,2)</code>，你需要找到所有满足这3张卡牌正面或背面朝上的数字之和可以被3整除的组合数。</p>
-<p>思考：后续卡牌可沿用前面的组合，即状态推导。此外需要遍历每一种组合，适合打表。所以选用动态规划。</p>
+<h6 id="思考后续卡牌可沿用前面的组合即状态推导此外需要遍历每一种组合适合打表所以选用动态规划">思考：后续卡牌可沿用前面的组合，即状态推导。此外需要遍历每一种组合，适合打表。所以选用动态规划。</h6>
 <ol type="1">
 <li><p>dp数组：</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dp[i][j]: i 是第i张牌，j是选到第i张牌后的取余结果(0，1，2三种), </span><br><span class="line">dp[i][(j+num)<span class="comment">%3]（num为当前数字）是取余结果为(j+num)%3的个数 += 本来取余结果为 j 个数【在这一步转变为了(j+num)%3】</span></span><br><span class="line">最终dp[n][0]为选完n张牌后最终取余结果为0的个数</span><br></pre></td></tr></table></figure></li>
@@ -199,12 +199,12 @@ int main() &#123;
 </details></li>
 </ol>
 <h4 id="section-1">002.</h4>
-<p>日期：25/01/02</p>
+<h6 id="日期250102">日期：25/01/02</h6>
 <p>os：一打眼，不会做。。。看题解。。。又是动态规划</p>
-<p>题目链接：<a target="_blank" rel="noopener" href="https://www.marscode.cn/practice/5www4lxd2k60le?problem_id=7414004855075225644">MarsCode</a></p>
-<p>题目内容：</p>
+<h6 id="题目链接marscode">题目链接：<a target="_blank" rel="noopener" href="https://www.marscode.cn/practice/5www4lxd2k60le?problem_id=7414004855075225644">MarsCode</a></h6>
+<h6 id="题目内容-1">题目内容：</h6>
 <p>小R正在研究DNA序列，他需要一个函数来计算将一个受损DNA序列（dna1）转换成一个未受损序列（dna2）所需的最少编辑步骤。编辑步骤包括：增加一个碱基、删除一个碱基或替换一个碱基。</p>
-<p>分析：有最优子结构的性质，可以分解为将 <code>dna1</code> 的前 <code>i</code> 个字符转换为 <code>dna2</code> 的前 <code>j</code> 个字符所需的最少编辑步骤的子问题。</p>
+<h6 id="分析有最优子结构的性质可以分解为将-dna1-的前-i-个字符转换为-dna2-的前-j-个字符所需的最少编辑步骤的子问题">分析：有最优子结构的性质，可以分解为将 <code>dna1</code> 的前 <code>i</code> 个字符转换为 <code>dna2</code> 的前 <code>j</code> 个字符所需的最少编辑步骤的子问题。</h6>
 <ol type="1">
 <li>状态转移方程</li>
 </ol>
@@ -231,14 +231,37 @@ dp[i-1][j-1] + 1 &amp; &amp;{替换}
     // 创建一个 (m+1) x (n+1) 的二维数组 dp
     std::vector<std::vector<int>> dp(m + 1, std::vector<int>(n + 1, 0));
     // 初始化 dp 数组的第一行和第一列
-    for (int i = 0; i <= m; ++i) &#123; dp[i][0]="i;" &#125; for (int j="0;" <="n;" ++j) dp[0][j]="j;" 填充 dp 数组 i="1;" if (dna1[i-1]="=" dna2[j-1]) dp[i][j]="dp[i-1][j-1];" else dp[i][j-1], dp[i-1][j-1]&#125;) + 1; return dp[m][n]; int main() std::cout << (solution("agcttagc", "agctagct")="=" 2) std::endl; (solution("agccgagc", "gctagct")="=" 4) 0; code></=></int></std::vector<int></code></pre>
+    for (int i = 0; i &lt;= m; ++i) &#123;
+        dp[i][0] = i;
+    &#125;
+    for (int j = 0; j &lt;= n; ++j) &#123;
+        dp[0][j] = j;
+    &#125;
+    // 填充 dp 数组
+    for (int i = 1; i &lt;= m; ++i) &#123;
+        for (int j = 1; j &lt;= n; ++j) &#123;
+            if (dna1[i-1] == dna2[j-1]) &#123;
+                dp[i][j] = dp[i-1][j-1];
+            &#125; else &#123;
+                dp[i][j] = std::min(&#123;dp[i-1][j], dp[i][j-1], dp[i-1][j-1]&#125;) + 1;
+            &#125;
+        &#125;
+    &#125;
+    return dp[m][n];
+ &#125;
+ int main() &#123;
+     std::cout << (solution("AGCTTAGC", "AGCTAGCT") == 2) << std::endl;
+     std::cout << (solution("AGCCGAGC", "GCTAGCT") == 4) << std::endl;
+     return 0;
+ &#125;
+</int></std::vector<int></code></pre>
 </details>
 <p>ps: 据说这是一个经典的<strong>编辑距离</strong>问题，也称为<strong>Levenshtein距离</strong>。</p></li>
 </ol>
 
                 
                 <div class="post-date" style="position: absolute; top: 10px; right: 10px; font-size: 14px; color: #888; background-color: rgba(255, 255, 255, 0.7); padding: 5px; border-radius: 5px;">
-                    2025-01-03
+                    2025-01-07
                 
                 </div>     
             </div>
