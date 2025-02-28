@@ -151,80 +151,104 @@
             
             <!-- Post -->
             <div class="typo" style="padding: 3rem; position: relative;">
-                <h1 id="javascript二">JavaScript(二)</h1>
+                <h1>JavaScript(二)</h1>
 <hr>
-<h3 id="一对象">一、对象</h3>
+<h3 id="一、对象">一、对象</h3>
 <p>对象属于一种复合的数据类型，在对象中可以保存多个不同数据类型的属性。</p>
 <p>对象的分类：</p>
-<ol type="1">
+<ol>
 <li>内建对象：
 <ul>
 <li>由ES标准中定义的对象，在任何ES的实现中都可以使用</li>
 <li>比如：Math String Number Boolean Function Object</li>
-</ul></li>
+</ul>
+</li>
 <li>宿主对象
 <ul>
 <li>由JS的运行环境提供的对象，目前来讲主要指浏览器提供的对象</li>
 <li>比如BOM DOM</li>
-</ul></li>
+</ul>
+</li>
 <li>自定义对象
 <ul>
 <li>由开发人员自己创建的对象</li>
-</ul></li>
+</ul>
+</li>
 </ol>
-<h3 id="二创建对象">二、创建对象</h3>
-<ol type="1">
-<li><p>创建对象：</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var obj = new object();</span><br><span class="line">// 或使用对象字面量创建</span><br><span class="line">var obj = &#123;&#125;</span><br><span class="line">/*</span><br><span class="line">创建时，可以直接指定对象中的属性</span><br><span class="line">语法：&#123;属性名: 属性值， 属性名: 属性值....&#125;</span><br><span class="line">属性名和属性值是一组一组的名值对结构</span><br><span class="line">多个名值对之间使用，隔开</span><br><span class="line">最后一个名值对不用加&quot;,&quot;</span><br><span class="line">*/</span><br><span class="line">var obj = &#123;</span><br><span class="line">    name = &quot;fukka&quot;,</span><br><span class="line">    age = 30,</span><br><span class="line">    gender = &quot;男&quot;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>添加属性：</p>
+<h3 id="二、创建对象">二、创建对象</h3>
+<ol>
+<li>
+<p>创建对象：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var obj = new object();</span><br><span class="line">// 或使用对象字面量创建</span><br><span class="line">var obj = &#123;&#125;</span><br><span class="line">/*</span><br><span class="line">创建时，可以直接指定对象中的属性</span><br><span class="line">语法：&#123;属性名: 属性值， 属性名: 属性值....&#125;</span><br><span class="line">属性名和属性值是一组一组的名值对结构</span><br><span class="line">多个名值对之间使用，隔开</span><br><span class="line">最后一个名值对不用加&quot;,&quot;</span><br><span class="line">*/</span><br><span class="line">var obj = &#123;</span><br><span class="line">    name = &quot;fukka&quot;,</span><br><span class="line">    age = 30,</span><br><span class="line">    gender = &quot;男&quot;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>添加属性：</p>
 <p>属性值可以是任意数据类新，甚至也可以是一个对象</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">obj.name = &quot;fukka&quot;;</span><br><span class="line">obj.gender = &quot;男&quot;;</span><br><span class="line">obj.age = &quot;18&quot;;</span><br><span class="line">/* </span><br><span class="line">如果要使用特殊的属性名，不能采用.的方式来操作</span><br><span class="line">需要使用另一种方式：</span><br><span class="line">语法：对象[&quot;属性名&quot;] = 属性值 </span><br><span class="line">读取时也需要采取这种方式</span><br><span class="line">*/</span><br><span class="line">obj[&quot;123&quot;] = 789</span><br><span class="line">// 使用[]这种形式更加灵活，[]内可以传递一个变量</span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li>
-<li><p>修改属性：</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj.age = &quot;19&quot;;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>删除属性：</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete obj.name;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>in运算符：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">obj.name = &quot;fukka&quot;;</span><br><span class="line">obj.gender = &quot;男&quot;;</span><br><span class="line">obj.age = &quot;18&quot;;</span><br><span class="line">/* </span><br><span class="line">如果要使用特殊的属性名，不能采用.的方式来操作</span><br><span class="line">需要使用另一种方式：</span><br><span class="line">语法：对象[&quot;属性名&quot;] = 属性值 </span><br><span class="line">读取时也需要采取这种方式</span><br><span class="line">*/</span><br><span class="line">obj[&quot;123&quot;] = 789</span><br><span class="line">// 使用[]这种形式更加灵活，[]内可以传递一个变量</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>修改属性：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj.age = &quot;19&quot;;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>删除属性：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete obj.name;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>in运算符：</p>
 <p>检查是否含有某属性</p>
-<p>语法："属性名" in 对象</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;test&quot; in obj</span><br></pre></td></tr></table></figure></p></li>
-<li><p>对象的属性值也可以是一个函数</p>
+<p>语法：“属性名” in 对象</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;test&quot; in obj</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>对象的属性值也可以是一个函数</p>
 <p>如果一个函数作为一个对象的属性保存，</p>
 <p>那么我们称这个函数是这个对象的方法</p>
 <p>调用这个函数就说调用对象的方法（method）</p>
-<p>只有名称上的区别吗，没有本质的区别。</p></li>
-<li><p>枚举对象中的属性</p>
-<p>使用for ... in 语句</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(var n in obj)</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">有几个属性，循环体执行几次。（n为属性名称）</span><br></pre></td></tr></table></figure></li>
+<p>只有名称上的区别吗，没有本质的区别。</p>
+</li>
+<li>
+<p>枚举对象中的属性</p>
+<p>使用for … in 语句</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(var n in obj)</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">有几个属性，循环体执行几次。（n为属性名称）</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h3 id="三基本数据类型和引用数据类型">三、基本数据类型和引用数据类型</h3>
-<p>​ JS的变量都存在栈内存中。值与值之间的事独立存在的，修改一个变量不会影响其它变量。</p>
-<p>​ 对象是保存到堆内存中的。每创建一个新的对象，就回在堆内存中开辟出一个新的空间，而变量保存的是对象的内存地址（对象的引用）。</p>
-<p>​ 如果两个变量保存的是同一个对象的引用，当一个通过一个变量修改属性时，另一个也会受到影响。</p>
-<p>​ 大白话版：基本数据类型保存的是值，引用数据类型保存的是地址。</p>
-<h3 id="四函数">四、函数</h3>
-<p>​ 函数也是一个对象</p>
-<ol type="1">
-<li><p>创建函数</p>
+<h3 id="三、基本数据类型和引用数据类型">三、基本数据类型和引用数据类型</h3>
+<p>​	JS的变量都存在栈内存中。值与值之间的事独立存在的，修改一个变量不会影响其它变量。</p>
+<p>​	对象是保存到堆内存中的。每创建一个新的对象，就回在堆内存中开辟出一个新的空间，而变量保存的是对象的内存地址（对象的引用）。</p>
+<p>​	如果两个变量保存的是同一个对象的引用，当一个通过一个变量修改属性时，另一个也会受到影响。</p>
+<p>​	大白话版：基本数据类型保存的是值，引用数据类型保存的是地址。</p>
+<h3 id="四、函数">四、函数</h3>
+<p>​	函数也是一个对象</p>
+<ol>
+<li>
+<p>创建函数</p>
 <ul>
 <li>可以将要封装的代码以字符串的形式传递给构造函数 (但一般不用)</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var fun = new Function(&quot;console.log(&#x27;Hello 这是我的第一个函数&#x27;);&quot;)</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>使用函数声明来创建一个函数</p>
+<li>
+<p>使用函数声明来创建一个函数</p>
 <p>语法：</p>
-<p>function 函数名([形参1，形参2...形参N]){</p>
-<p>​ 语句...</p>
+<p>function 函数名([形参1，形参2…形参N]){</p>
+<p>​	语句…</p>
 <p>}</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function fun2(a,b)&#123;</span><br><span class="line">    var c = a + b;</span><br><span class="line">    return c;</span><br><span class="line">&#125;</span><br><span class="line">// 调用</span><br><span class="line">var result = fun2(1,3);</span><br><span class="line">/*调用函数时解析器不会检查实参的类型，</span><br><span class="line">所以要注意可能接收到非法的参数，有可能需要进行参数检查</span><br><span class="line">同样也不会检查实参的数量</span><br><span class="line">多传了会不用，传少了，则没有实参的形参为undefined</span><br><span class="line">实参可以为任意类型</span><br><span class="line">*/</span><br></pre></td></tr></table></figure></li>
-<li><p>使用函数表达式来创建一个函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function fun2(a,b)&#123;</span><br><span class="line">    var c = a + b;</span><br><span class="line">    return c;</span><br><span class="line">&#125;</span><br><span class="line">// 调用</span><br><span class="line">var result = fun2(1,3);</span><br><span class="line">/*调用函数时解析器不会检查实参的类型，</span><br><span class="line">所以要注意可能接收到非法的参数，有可能需要进行参数检查</span><br><span class="line">同样也不会检查实参的数量</span><br><span class="line">多传了会不用，传少了，则没有实参的形参为undefined</span><br><span class="line">实参可以为任意类型</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>使用函数表达式来创建一个函数</p>
 <p>语法：</p>
-<p>​ var 函数名 = function([形参1，形参2...形参N]){</p>
-<p>​ 语句...</p>
+<p>​	var 函数名 = function([形参1，形参2…形参N]){</p>
+<p>​	语句…</p>
 <p>}</p>
 <p>本质为将一个匿名函数赋值给一个变量</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var fun3 = function()&#123;</span><br><span class="line">     	console.log(&quot;这是匿名函数&quot;)；</span><br><span class="line">     &#125;；</span><br><span class="line"> </span><br></pre></td></tr></table></figure></li>
-</ul></li>
-<li><p>对象参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var fun3 = function()&#123;</span><br><span class="line">     	console.log(&quot;这是匿名函数&quot;)；</span><br><span class="line">     &#125;；</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>
+<p>对象参数</p>
 <p>对象可以作为实参</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line"> 	name: &quot;fukka&quot;,</span><br><span class="line"> 	gender: &quot;man&quot;,</span><br><span class="line"> 	age: 18</span><br><span class="line">&#125;;</span><br><span class="line">function fun(o)</span><br><span class="line">&#123;</span><br><span class="line"> 	console.log(&quot;I am&quot; + o.name + &quot;, I am&quot; + o.age + &quot;. I am a&quot; + 		o.gender + &quot;.&quot; );</span><br><span class="line">&#125;</span><br><span class="line">fun(obj);</span><br></pre></td></tr></table></figure>
 <p>实参也可以是一个函数</p>
@@ -238,72 +262,97 @@
 <ul>
 <li>函数对象</li>
 <li>相当于直接使用函数对象</li>
-</ul></li>
-<li><p>立即执行函数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(function()&#123;</span><br><span class="line">    alert(&quot;我是一个匿名函数&quot;);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>
+<p>立即执行函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(function()&#123;</span><br><span class="line">    alert(&quot;我是一个匿名函数&quot;);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h3 id="五作用域">五、作用域</h3>
+<h3 id="五、作用域">五、作用域</h3>
 <p>作用域值一个变量的作用的范围</p>
 <p>两种作用域：</p>
-<ol type="1">
-<li><p>全局作用域</p>
+<ol>
+<li>
+<p>全局作用域</p>
 <ul>
-<li><p>直接编写在Script标签中的JS代码，都在全局作用域</p></li>
-<li><p>全局作用域在页面打开时创建，在页面关闭时销毁</p>
+<li>
+<p>直接编写在Script标签中的JS代码，都在全局作用域</p>
+</li>
+<li>
+<p>全局作用域在页面打开时创建，在页面关闭时销毁</p>
 <ul>
 <li>在全局作用域中有一个全局对象window
 <ul>
 <li>它代表的是浏览器的窗口，它由浏览器创建，可以直接使用</li>
-</ul></li>
+</ul>
+</li>
 <li>在全局作用域中：
 <ul>
 <li>创建的变量都会作为window对象的属性保存</li>
 <li>创建的函数都会作为window对象的方法保存</li>
-</ul></li>
-</ul></li>
-<li><p>全局作用域中的变量都是全局变量</p>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>全局作用域中的变量都是全局变量</p>
 <ul>
 <li>在页面的任意部分都可以访问到</li>
-</ul></li>
-</ul></li>
-<li><p>函数作用域</p>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>函数作用域</p>
 <ul>
-<li><p>调用函数时创建函数作用域，函数执行完毕后，函数作用域销毁</p></li>
-<li><p>每调用一个函数就会创建一个新的函数作用域，他们之间是相互独立的</p></li>
-<li><p>在函数作用域中可以访问全区变量，反之不行</p></li>
-<li><p>在函数中要访问全局变量，可以使用window对象</p></li>
-</ul></li>
+<li>
+<p>调用函数时创建函数作用域，函数执行完毕后，函数作用域销毁</p>
+</li>
+<li>
+<p>每调用一个函数就会创建一个新的函数作用域，他们之间是相互独立的</p>
+</li>
+<li>
+<p>在函数作用域中可以访问全区变量，反之不行</p>
+</li>
+<li>
+<p>在函数中要访问全局变量，可以使用window对象</p>
+</li>
+</ul>
+</li>
 </ol>
 <p>声明提前：</p>
-<ol type="1">
+<ol>
 <li>变量声明提前：
 <ul>
 <li>使用var关键字声明的变量，会在所有代码执行之前被声明(但不会赋值）</li>
 <li>但如果声明变量时不使用var关键字，则变量不会被声明提前</li>
-</ul></li>
+</ul>
+</li>
 <li>函数的生命提前
 <ul>
 <li>使用函数声明形式创建的函数function函数(){}</li>
 <li>他会在所有的代码执行之前就被创建</li>
-</ul></li>
+</ul>
+</li>
 </ol>
-<h3 id="六this">六、this</h3>
+<h3 id="六、this">六、this</h3>
 <p>解析器在调用函数时，每次都会向函数内部传递进一个隐含的参数，</p>
 <p>这个隐含的参数就是this，this指向的是一个对象，这个对象称之为函数执行的上下文对象</p>
 <p>根据函数的调用方式的不同，this会指向不同的对象</p>
-<ol type="1">
+<ol>
 <li>以函数的形式调用，this永远都是window</li>
 <li>以方法的形式调用，this就是调用方法的那个对象</li>
 <li>当以构造函数的形式调用，this就是新创建的那个对象</li>
 </ol>
-<h3 id="七工厂方法">七、工厂方法</h3>
+<h3 id="七、工厂方法">七、工厂方法</h3>
 <p>大批量创建对象</p>
 <p>但是使用工厂方法创建的对象，使用的函数都是Object，导致无法区分出多种不同的类型</p>
-<h3 id="八构造函数">八、构造函数</h3>
+<h3 id="八、构造函数">八、构造函数</h3>
 <p>构造函数的创建方式和普通函数没有区别，但构造函数习惯上首字母大写</p>
 <p>构造函数和普通函数的调用方式不同，需要使用new关键字来调用</p>
 <p>构造函数的执行流程：</p>
-<ol type="1">
+<ol>
 <li>立刻创建一个新的对象</li>
 <li>将新建的对象设置为函数中的this，在构造函数中使用this来引用新建对象</li>
 <li>执行函数中的代码</li>
@@ -312,17 +361,17 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function Person(name, age)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.age = age;</span><br><span class="line">    this.sayName = function()&#123;</span><br><span class="line">        alert(this.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var per = new Person(&quot;fukka&quot;, 22);</span><br></pre></td></tr></table></figure>
 <p>使用instanceof可以检查一个对象是否是一个类的实例</p>
 <p>语法：</p>
-<p>​ 对象 instanceof 构造函数</p>
+<p>​	对象 instanceof 构造函数</p>
 <p>如果是，则返回true，否则返回false</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(per instanceof Person);</span><br></pre></td></tr></table></figure>
 <p>将sayName方法放在构造方法之中，每新建一个对象，就会创建一个新的方法，占用内存。</p>
 <p>因此可以将sayName方法在全局作用域中定义</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Person(name, age)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.age = age;</span><br><span class="line">    this.sayName = fun()&#123;</span><br><span class="line">        alert(this.name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">function fun()&#123;</span><br><span class="line">    alert(this.name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>但是：</p>
-<p>​ 将函数定义在全局作用域中，污染了全局作用域的命名空间</p>
-<p>​ 而且定义在全局作用域中很不安全</p>
-<h3 id="九原型-prototyoe">九、原型 prototyoe</h3>
-<ol type="1">
+<p>​	将函数定义在全局作用域中，污染了全局作用域的命名空间</p>
+<p>​	而且定义在全局作用域中很不安全</p>
+<h3 id="九、原型-prototyoe">九、原型 prototyoe</h3>
+<ol>
 <li>我们所创建的<strong>每一个函数</strong>，解析器都会为其添加一个prototype 属性，这个属性对应着一个对象，即<strong>原型对象</strong>。</li>
 <li>当函数作为普通函数调用prototype没有任何作用。</li>
 <li>当函数以<strong>构造函数</strong>的形式调用时，它所创建的对象中都会有一个<strong>隐含属性</strong>，指向该构造函数的<strong>原型对象</strong>，我们可以通过__ proto __来访问该属性。</li>
@@ -343,11 +392,11 @@
 <p>Object对象的原型没有原型，如果在Object原型中依然没有找到，返回undefined。</p>
 <p>上述称之为原型链。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(mc.__proto.__proto__.hasOwnProperty(&quot;hasOwnProperty&quot;)) //true</span><br></pre></td></tr></table></figure>
-<h3 id="十tostring">十、toString()</h3>
+<h3 id="十、toString">十、toString()</h3>
 <p>当我们直接在页面中打印一个对象时，实际上输出的对象的toString()方法的返回值。</p>
 <p>默认为输出[object object], 如果不希望这样输出，可以为对象添加一个toString()方法</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function Person(name, age)&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">var per = new Person();</span><br><span class="line">Person.prototype.toString = function()&#123;</span><br><span class="line">    return &quot;我是&quot; + this.name&quot;+&quot;,今年&quot; + this.age;</span><br><span class="line">&#125;</span><br><span class="line">console.log(per); //</span><br></pre></td></tr></table></figure>
-<h3 id="十一垃圾回收gc">十一、垃圾回收（GC）</h3>
+<h3 id="十一、垃圾回收（GC）">十一、垃圾回收（GC）</h3>
 <p>当一个对象没有任何变量或属性对它进行引用，此时我们将永远无法操作该对象。该对象则为垃圾。</p>
 <p>在JS中拥有自动的垃圾回收机制，将自动将垃圾对象从内存中销毁。</p>
 <p>我们不需要也不能进行垃圾回收的操作。</p>
