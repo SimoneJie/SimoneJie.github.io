@@ -151,74 +151,109 @@
             
             <!-- Post -->
             <div class="typo" style="padding: 3rem; position: relative;">
-                <h1 id="javascript一">JavaScript（一）</h1>
-<h3 id="一起源">一、起源</h3>
+                <h1>JavaScript（一）</h1>
+<h3 id="一、起源">一、起源</h3>
 <p>起源于前端验证（无需请求服务器）</p>
 <p>三个部分构成： ECMAScript、DOM、BOM</p>
 <p>特点：解释性语言（不用编译） 动态语言 基于原型的面向对象</p>
-<h3 id="二js编写位置">二、JS编写位置</h3>
-<ol type="1">
-<li><h5 id="可以将js代码写到标签内">可以将js代码写到标签内</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 虽然可以写在标签属性里，但属于结构与行为的耦合，不方便维护 --&gt;</span><br><span class="line"></span><br><span class="line">    &lt;button onclick=&quot;alert(&#x27;这是js代码写到了onclick属性中&#x27;)&quot;&gt; 点我一下&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">   &lt;a href=&quot;JavaScript:alert(&#x27;这是js写在了链接里&#x27;)&quot;&gt;这是链接&lt;/a&gt;</span><br></pre></td></tr></table></figure></li>
-<li><h5 id="可以写到js标签内">可以写到js标签内</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">       // 控制浏览器弹出一个警告框</span><br><span class="line">       // alert(&quot;这能弹出一个警告框&quot;)；</span><br><span class="line">       // document.write(&quot;作用是向body输出一个内容&quot;)；</span><br><span class="line">       // console.log(&quot;向控制台输出一个内容&quot;)；</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
-<li><h5 id="可以写在外部文件然后通过script标签引入">可以写在外部文件，然后通过script标签引入</h5>
+<h3 id="二、JS编写位置">二、JS编写位置</h3>
+<ol>
+<li>
+<h5 id="可以将js代码写到标签内">可以将js代码写到标签内</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 虽然可以写在标签属性里，但属于结构与行为的耦合，不方便维护 --&gt;</span><br><span class="line"></span><br><span class="line">    &lt;button onclick=&quot;alert(&#x27;这是js代码写到了onclick属性中&#x27;)&quot;&gt; 点我一下&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">   &lt;a href=&quot;JavaScript:alert(&#x27;这是js写在了链接里&#x27;)&quot;&gt;这是链接&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<h5 id="可以写到js标签内">可以写到js标签内</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">       // 控制浏览器弹出一个警告框</span><br><span class="line">       // alert(&quot;这能弹出一个警告框&quot;)；</span><br><span class="line">       // document.write(&quot;作用是向body输出一个内容&quot;)；</span><br><span class="line">       // console.log(&quot;向控制台输出一个内容&quot;)；</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<h5 id="可以写在外部文件，然后通过script标签引入">可以写在外部文件，然后通过script标签引入</h5>
 <p>写到外部文件中可以在不同页面中同时引用</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;script.js&quot;&gt;&lt;/script&gt; </span><br><span class="line">// js文件在script.js文件中</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;script.js&quot;&gt;&lt;/script&gt; </span><br><span class="line">// js文件在script.js文件中</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h3 id="三基本语法">三、基本语法</h3>
-<ol type="1">
-<li><p><strong>JS中严格区分大小写</strong></p></li>
-<li><p><strong>JS中每一条语句以分号（；）结尾</strong> （如果不写分号，浏览器会自动添加，但会消耗资源，浏览器还会加错分号</p></li>
-<li><p><strong>JS会自动忽略多个空格个换行</strong></p></li>
-<li><p><strong>JS中使用var声明变量</strong></p></li>
-<li><p><strong>标识符：</strong> 在JS中由我们自主命名的变量名、函数名、属性名 （这点感觉和其它语言没什么区别。。</p>
+<h3 id="三、基本语法">三、基本语法</h3>
+<ol>
+<li>
+<p><strong>JS中严格区分大小写</strong></p>
+</li>
+<li>
+<p><strong>JS中每一条语句以分号（；）结尾</strong> （如果不写分号，浏览器会自动添加，但会消耗资源，浏览器还会加错分号</p>
+</li>
+<li>
+<p><strong>JS会自动忽略多个空格个换行</strong></p>
+</li>
+<li>
+<p><strong>JS中使用var声明变量</strong></p>
+</li>
+<li>
+<p><strong>标识符</strong>**：** 在JS中由我们自主命名的变量名、函数名、属性名  （这点感觉和其它语言没什么区别。。</p>
 <ul>
-<li><p>标识符中可以包含字母、数字、_、$</p></li>
-<li><p>标识符不能以数字开头</p></li>
-<li><p>标识符不能是ES中的关键字或保留字</p></li>
-<li><p>标识符一般采用驼峰命名法</p>
-<p>首字符小写，每个单词开头字母大写，其余字母小写 如 var helloWorld = 1</p></li>
-<li><p>JS底层保存标识符用Unicode编码（utf-8的内容都可以作为标识符）</p></li>
-</ul></li>
-<li><p><strong>JS只有六种数据类型：</strong></p>
+<li>
+<p>标识符中可以包含字母、数字、_、$</p>
+</li>
+<li>
+<p>标识符不能以数字开头</p>
+</li>
+<li>
+<p>标识符不能是ES中的关键字或保留字</p>
+</li>
+<li>
+<p>标识符一般采用驼峰命名法</p>
+<p>首字符小写，每个单词开头字母大写，其余字母小写 如 var helloWorld = 1</p>
+</li>
+<li>
+<p>JS底层保存标识符用Unicode编码（utf-8的内容都可以作为标识符）</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>JS只有六种数据类型：</strong></p>
 <p>typeof 检查变量类型</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如：alert(typeof b)</span><br></pre></td></tr></table></figure>
-<p>1）String 字符串</p>
-<p>​ -单引号内可以放双引号</p>
-<p>​ -或者使用 ’‘ 做转义字符</p>
+<p>1）String   字符串</p>
+<p>​	-单引号内可以放双引号</p>
+<p>​	-或者使用 ’\‘ 做转义字符</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\n   换行</span><br><span class="line">\t   空格</span><br></pre></td></tr></table></figure>
-<p>2）Number 数值</p>
-<p>​ -JS中所有整数都是Number类型</p>
-<p>​ -最大数值1.797e+308</p>
-<p>3）Boolean 布尔值</p>
+<p>2）Number  数值</p>
+<p>​	-JS中所有整数都是Number类型</p>
+<p>​	-最大数值1.797e+308</p>
+<p>3）Boolean  布尔值</p>
 <p>4）Null 空值</p>
-<p>​ -表示空对象</p>
+<p>​	-表示空对象</p>
 <p>5）Undefined 未定义</p>
-<p>6）Object 对象</p></li>
-<li><p><strong>类型转换</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// String</span><br><span class="line">a.toString();</span><br><span class="line">String(a);</span><br><span class="line"></span><br><span class="line">// Number</span><br><span class="line">Number(a)</span><br><span class="line">// 字符串中的非数值内容/Undefined转为NaN</span><br><span class="line">// 空格或空串或null转换为0</span><br><span class="line">// true: 1 false:0</span><br><span class="line">// parseInt方法</span><br><span class="line">// 可以将字符串中有效的整数内容取出来，然后转换为number</span><br><span class="line">// 对于非字符串数据会先转成字符串，如Boolean的true会被转成&quot;true&quot;</span><br><span class="line">a = &quot;123px&quot; a = &quot;123px2456&quot;</span><br><span class="line">a = parseInt(a)</span><br><span class="line">a: 123</span><br><span class="line">a = &quot;123.456px&quot;</span><br><span class="line">a = parsrFloat(a)</span><br><span class="line">a:123.456</span><br><span class="line"></span><br><span class="line">// Boolean</span><br><span class="line">非0/NaN/null/undefined为真</span><br><span class="line">对象也会转换为True</span><br><span class="line">a = &quot;123&quot;</span><br><span class="line">a = Boolean()</span><br><span class="line">a : True</span><br><span class="line">a = &quot;0&quot;</span><br><span class="line">a = Boolean()</span><br><span class="line">a : false</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>进制表示</strong></p>
+<p>6）Object 对象</p>
+</li>
+<li>
+<p><strong>类型转换</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// String</span><br><span class="line">a.toString();</span><br><span class="line">String(a);</span><br><span class="line"></span><br><span class="line">// Number</span><br><span class="line">Number(a)</span><br><span class="line">// 字符串中的非数值内容/Undefined转为NaN</span><br><span class="line">// 空格或空串或null转换为0</span><br><span class="line">// true: 1 false:0</span><br><span class="line">// parseInt方法</span><br><span class="line">// 可以将字符串中有效的整数内容取出来，然后转换为number</span><br><span class="line">// 对于非字符串数据会先转成字符串，如Boolean的true会被转成&quot;true&quot;</span><br><span class="line">a = &quot;123px&quot; a = &quot;123px2456&quot;</span><br><span class="line">a = parseInt(a)</span><br><span class="line">a: 123</span><br><span class="line">a = &quot;123.456px&quot;</span><br><span class="line">a = parsrFloat(a)</span><br><span class="line">a:123.456</span><br><span class="line"></span><br><span class="line">// Boolean</span><br><span class="line">非0/NaN/null/undefined为真</span><br><span class="line">对象也会转换为True</span><br><span class="line">a = &quot;123&quot;</span><br><span class="line">a = Boolean()</span><br><span class="line">a : True</span><br><span class="line">a = &quot;0&quot;</span><br><span class="line">a = Boolean()</span><br><span class="line">a : false</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>进制表示</strong></p>
 <p>16进制： 0x开头</p>
 <p>8进制：0开头</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a=&quot;070&quot;;</span><br><span class="line">a=parseInt(a);</span><br><span class="line">有的浏览器会解析成十进制，有些会解析成8进制</span><br><span class="line">因此可以指定进制</span><br><span class="line">a=parseInt(a,10);</span><br></pre></td></tr></table></figure>
-<p>2进制：0b开头</p></li>
-<li><p><strong>运算符(操作符)</strong></p>
+<p>2进制：0b开头</p>
+</li>
+<li>
+<p><strong>运算符(操作符)</strong></p>
 <p>运算符都会返回结果</p>
 <p>任何值和NaN做运算，结果都是NaN</p>
 <p>算术运算符： + - * /%</p>
-<p>字符串"+":（拼串操作）</p>
-<p>​ -写长字符串的时候，可以借助"+"对代码进行换行，更加美观</p>
-<p>​ -任何值和字符串相加，都会被转为字符串</p>
-<p>​ -利用a = a + "" 将任意类型转为string（<strong>隐式的类型转换</strong></p></li>
+<p>字符串&quot;+&quot;:（拼串操作）</p>
+<p>​       -写长字符串的时候，可以借助&quot;+&quot;对代码进行换行，更加美观</p>
+<p>​       -任何值和字符串相加，都会被转为字符串</p>
+<p>​       -利用a = a + “” 将任意类型转为string（<strong>隐式的类型转换</strong></p>
+</li>
 </ol>
-<p>​ 除了"+"以外，参与运算的元素都会被转换为Number</p>
-<p>​ <strong>Number的隐式转换:</strong></p>
-<p>​ -为一个值 -0 *1 /1</p>
-<p>​ -或者使用一元运算符 + / -</p>
-<ol start="10" type="1">
-<li><p><strong>逻辑运算符</strong></p>
-<p>! : 非 布尔值取反 对非布尔值，会将其先转换为布尔值，再取反。</p>
+<p>​	除了&quot;+&quot;以外，参与运算的元素都会被转换为Number</p>
+<p>​       <strong>Number的隐式转换:</strong></p>
+<p>​		-为一个值 -0 *1 /1</p>
+<p>​		-或者使用一元运算符 + / -</p>
+<ol start="10">
+<li>
+<p><strong>逻辑运算符</strong></p>
+<p>! : 非 布尔值取反   对非布尔值，会将其先转换为布尔值，再取反。</p>
 <p><strong>Boolean的隐式转换：</strong></p>
 <p>-两次非运算</p>
 <p>&amp;&amp; : 与</p>
@@ -226,42 +261,55 @@
 <p>&amp;&amp; || 非布尔值的情况:</p>
 <p>&amp;&amp; 如果第一个为false，则返回第一个值；第一个为true，则返回第二个值</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var result = 5 &amp;&amp; 6</span><br><span class="line">result : 6</span><br><span class="line">var result = NaN &amp;&amp; 6</span><br><span class="line">result : NaN</span><br></pre></td></tr></table></figure>
-<p>|| 如果第一个为true，则直接返回第一个值; 第一个为false, 则返回第二个值</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var result = 5 || NaN</span><br><span class="line">result : 5</span><br><span class="line">var result = NaN &amp;&amp; 6</span><br><span class="line">result : 6</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>关系运算符</strong></p>
+<p>|| 如果第一个为true，则直接返回第一个值;  第一个为false, 则返回第二个值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var result = 5 || NaN</span><br><span class="line">result : 5</span><br><span class="line">var result = NaN &amp;&amp; 6</span><br><span class="line">result : 6</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>关系运算符</strong></p>
 <p>非数值情况:</p>
-<p>​ 对于非数值进行比较时，会将其转换为数字然后比较</p>
-<p>​ 如果符号两侧的值都是字符串，则会比较字符的Unicode编码，一位一位进行比较</p>
+<p>​	对于非数值进行比较时，会将其转换为数字然后比较</p>
+<p>​	如果符号两侧的值都是字符串，则会比较字符的Unicode编码，一位一位进行比较</p>
 <p>==: 相等</p>
-<p>​ 会自动进行类型转换，将其转会为相同的类型，然后再比较</p>
-<p>​ undefine衍生自null，所以二者判断相等时，会返回true</p>
+<p>​	会自动进行类型转换，将其转会为相同的类型，然后再比较</p>
+<p>​	undefine衍生自null，所以二者判断相等时，会返回true</p>
 <p>可以通过isNaN(), 判断一个值是否是NaN</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">isNaN(b)</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">isNaN(b)</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<p>​ !=: 不相等：</p>
-<p>​ 不相等也会对变量进行自动的类型转换</p>
-<p>​ ===: 全等</p>
-<p>​ 不会做类型转换，如果两个值类型不同，直接返回false</p>
-<p>​ !==: 不全等</p>
-<ol start="12" type="1">
-<li><p><strong>Unicode编码</strong></p>
-<p>在字符串中使用Unicode编码： </p>
-<p>在网页中使用Unicode编码：&amp;# 编码； （这里的编码需要十进制）</p></li>
-<li><p><strong>条件运算符</strong></p>
+<p>​      !=: 不相等：</p>
+<p>​      	不相等也会对变量进行自动的类型转换</p>
+<p>​      ===: 全等</p>
+<p>​      	不会做类型转换，如果两个值类型不同，直接返回false</p>
+<p>​      !==: 不全等</p>
+<ol start="12">
+<li>
+<p><strong>Unicode编码</strong></p>
+<p>在字符串中使用Unicode编码： \u四位编码</p>
+<p>在网页中使用Unicode编码：&amp;# 编码； （这里的编码需要十进制）</p>
+</li>
+<li>
+<p><strong>条件运算符</strong></p>
 <p>条件表达式？语句1：语句2；</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = 30;</span><br><span class="line">var b = 20;</span><br><span class="line">a &gt; b ?alert(&quot;a大&quot;): alert(&quot;b大&quot;);</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>代码块</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = 30;</span><br><span class="line">var b = 20;</span><br><span class="line">a &gt; b ?alert(&quot;a大&quot;): alert(&quot;b大&quot;);</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>代码块</strong></p>
 <p>{}： JS中可以用{}来为语句分组</p>
 <p>代码块中的内容会一起执行</p>
 <p>代码块内部的内容，在外部是完全可见的</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;		</span><br><span class="line">  var a = 10;</span><br><span class="line">  alert(&quot;hello&quot;);</span><br><span class="line">  console.log(&quot;你好&quot;);</span><br><span class="line">&#125;</span><br><span class="line">console.log(&quot;a = &quot;+a);</span><br><span class="line">// 执行时上述代码块中语句会全部执行</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>if语句</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if(条件表达式)</span><br><span class="line">&#123;</span><br><span class="line">   	语句</span><br><span class="line">&#125;else&#123;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-<li><p><strong>条件分支语句</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">switch(条件表达式)&#123;      // 进行全等比较</span><br><span class="line">    case 表达式1：</span><br><span class="line">    	语句；</span><br><span class="line">    	break；</span><br><span class="line">    case 表达式2：</span><br><span class="line">    	语句；</span><br><span class="line">    	break；</span><br><span class="line">    .......</span><br><span class="line">    default：</span><br><span class="line">    	语句;</span><br><span class="line">    	break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;		</span><br><span class="line">  var a = 10;</span><br><span class="line">  alert(&quot;hello&quot;);</span><br><span class="line">  console.log(&quot;你好&quot;);</span><br><span class="line">&#125;</span><br><span class="line">console.log(&quot;a = &quot;+a);</span><br><span class="line">// 执行时上述代码块中语句会全部执行</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>if语句</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if(条件表达式)</span><br><span class="line">&#123;</span><br><span class="line">   	语句</span><br><span class="line">&#125;else&#123;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>条件分支语句</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">switch(条件表达式)&#123;      // 进行全等比较</span><br><span class="line">    case 表达式1：</span><br><span class="line">    	语句；</span><br><span class="line">    	break；</span><br><span class="line">    case 表达式2：</span><br><span class="line">    	语句；</span><br><span class="line">    	break；</span><br><span class="line">    .......</span><br><span class="line">    default：</span><br><span class="line">    	语句;</span><br><span class="line">    	break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<p>17<strong>.while循环/for循环</strong></p>
-<p>​ 与C语言一致</p>
+<p>17**.while循环/for循环**</p>
+<p>​	与C语言一致</p>
 
                 
                 <div class="post-date" style="position: absolute; top: 10px; right: 10px; font-size: 14px; color: #888; background-color: rgba(255, 255, 255, 0.7); padding: 5px; border-radius: 5px;">
