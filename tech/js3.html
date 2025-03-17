@@ -172,7 +172,7 @@
 <p>此时这个对象将成为函数执行时的this</p>
 <p>call()方法可以将实参在对象之后依次传递</p>
 <p>apply()方法需要将实参封装到一个数组中统一传递</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function fun(a,b)</span><br><span class="line">&#123;</span><br><span class="line">    alert(this.name);</span><br><span class="line">    alert(a + b);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">var obj = &#123;name:&quot;fukka&quot;, </span><br><span class="line">		  sayName:function()&#123;</span><br><span class="line">    	  alert(this.name)</span><br><span class="line">    	  &#125;&#125;</span><br><span class="line">var obj2 = &#123;name: &quot;iwmt&quot;&#125;</span><br><span class="line">fun(); // this永远都是window</span><br><span class="line">fun.apply(obj); //fukka</span><br><span class="line">fun.call(obj);</span><br><span class="line">obj.sayName.apply(obj2) //iwmt</span><br><span class="line">fun.cal(obj,2,3) //fukka, 5</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function fun(a,b)</span><br><span class="line">&#123;</span><br><span class="line">    alert(this.name);</span><br><span class="line">    alert(a + b);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">var obj = &#123;name:&quot;fukka&quot;, </span><br><span class="line">		  sayName:function()&#123;</span><br><span class="line">    	  alert(this.name)</span><br><span class="line">    	  &#125;&#125;</span><br><span class="line">var obj2 = &#123;name: &quot;iwmt&quot;&#125;</span><br><span class="line">fun(); // this永远都是window</span><br><span class="line">fun.apply(obj); //fukka</span><br><span class="line">fun.call(obj);</span><br><span class="line">obj.sayName.apply(obj2) //iwmt</span><br><span class="line">fun.call(obj,2,3) //fukka, 5</span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>this 的情况：</p>
@@ -295,7 +295,7 @@
 
                 
                 <div class="post-date" style="position: absolute; top: 10px; right: 10px; font-size: 14px; color: #888; background-color: rgba(255, 255, 255, 0.7); padding: 5px; border-radius: 5px;">
-                    2025-02-27
+                    2025-03-12
                 
                 </div>     
             </div>

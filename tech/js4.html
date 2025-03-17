@@ -179,7 +179,6 @@
 <li>
 <p>通过name属性获取一组元素节点对象 getElementsByName()</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var inputs = documents.getElementsByName(&quot;gender&quot;);</span><br></pre></td></tr></table></figure>
-<p>​</p>
 </li>
 </ol>
 <p>**事件：**用户和浏览器之间的交互行为。 比如：点击按钮、鼠标移动、关闭窗口</p>
@@ -232,13 +231,12 @@
 <p>​	fun 事件的回调函数，当单击元素时，该函数将会被触发</p>
 <p><strong>在事件的响应函数中，响应函数是谁，绑定的this就是谁</strong></p>
 <p><strong>document属性</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
 <p>根据元素的class属性值查询一组元素节点对象，但不支持IE8及以下浏览器</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var box1 = document.getElementByClassName(&quot;box1&quot;);</span><br><span class="line">// 获取页面中的所有div</span><br><span class="line">var divs = document.getElementsByTagName(&quot;div&quot;);</span><br><span class="line">// 获取box1中所有的div   .box div 可以根据CSS选择器来查询一个元素节点对象</span><br><span class="line">// 使用该方法总是会返回第一个，其他的就不找了</span><br><span class="line">document.querySelector(&quot;.box div&quot;);</span><br><span class="line">// 该方法和querySelector()类似，不同的是它会将符合条件的元素封装到一个数组中返回</span><br><span class="line">box1 = document.querySelectorAll(&quot;.box1&quot;);</span><br></pre></td></tr></table></figure>
 
                 
                 <div class="post-date" style="position: absolute; top: 10px; right: 10px; font-size: 14px; color: #888; background-color: rgba(255, 255, 255, 0.7); padding: 5px; border-radius: 5px;">
-                    2025-02-27
+                    2025-03-12
                 
                 </div>     
             </div>
