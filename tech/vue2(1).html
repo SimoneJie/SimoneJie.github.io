@@ -151,58 +151,46 @@
             
             <!-- Post -->
             <div class="typo" style="padding: 3rem; position: relative;">
-                <h1>VUE(一)</h1>
-<h3 id="一、简介">一、简介</h3>
+                <h1 id="vue一">VUE(一)</h1>
+<h3 id="一简介">一、简介</h3>
 <p>用于构建用户界面的渐进式JavaScript框架</p>
 <p>特点：</p>
-<ol>
+<ol type="1">
 <li>组件化模式</li>
 <li>声明式编码，无需直接操作DOM</li>
 </ol>
-<h3 id="二、入门">二、入门</h3>
+<h3 id="二入门">二、入门</h3>
 <p>使用Vue，必须创建对象</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;</span><br><span class="line">		    //el的第一种写法</span><br><span class="line">           el: &#x27;#root&#x27;, // el用于指定当前Vue实例为哪个容器服务，值通常为CSS选择器字符串</span><br><span class="line">           //data的第一种写法：对象式</span><br><span class="line">           data: &#123;   // data中用于存储数据，数据供el所指定的容器去使用，这里值暂时写成一个对象</span><br><span class="line">               name: &#x27;simone&#x27;</span><br><span class="line">           &#125;</span><br><span class="line">           // data的第二种写法</span><br><span class="line">           data:function()&#123;</span><br><span class="line">               return&#123;</span><br><span class="line">                   name:&#x27;尚硅谷&#x27;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;)</span><br><span class="line">//el的第二种写法</span><br><span class="line">v.$mount(&#x27;#root&#x27;)</span><br><span class="line">由VUE所管理的函数，一定不能写成箭头函数。</span><br></pre></td></tr></table></figure>
-<h3 id="三、模板语法">三、模板语法</h3>
-<ol>
-<li>
-<p>差值语法</p>
+<h3 id="三模板语法">三、模板语法</h3>
+<ol type="1">
+<li><p>差值语法</p>
 <p>用于解析标签体内的内容</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;&#125;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>指令语法</p>
-<p>用于解析标签（标签属性、标签体内容、绑定事件…）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">v-bind:href=&quot;xxx&quot; //xxx要为表达式, v-bind:可以简写为:，单向数据绑定，数据只能从data流向页面</span><br><span class="line">v-model:    //可以省略value属性，直接写v-model双向数据绑定, v-model只能用于表单类元素(输入类元素)</span><br><span class="line">v-on: //绑定事件 如v-on:click=&quot;&quot;可简写为@click=&quot;&quot;</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;&#125;&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>指令语法</p>
+<p>用于解析标签（标签属性、标签体内容、绑定事件...）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">v-bind:href=&quot;xxx&quot; //xxx要为表达式, v-bind:可以简写为:，单向数据绑定，数据只能从data流向页面</span><br><span class="line">v-model:    //可以省略value属性，直接写v-model双向数据绑定, v-model只能用于表单类元素(输入类元素)</span><br><span class="line">v-on: //绑定事件 如v-on:click=&quot;&quot;可简写为@click=&quot;&quot;</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h3 id="四、MVVM模型">四、MVVM模型</h3>
-<ol>
+<h3 id="四mvvm模型">四、MVVM模型</h3>
+<ol type="1">
 <li>M模型(Model)：对应data中的数据</li>
 <li>V视图(View)：模板</li>
 <li>VM视图模型(View Model)：Vue 实例对象</li>
 </ol>
-<h3 id="五、数据代理">五、数据代理</h3>
-<ol>
-<li>
-<p>enumerable:  true 控制属性是否可以枚举，默认为false；</p>
-</li>
-<li>
-<p>writable: true 控制属性是否可以被修改，默认为false</p>
-</li>
-<li>
-<p>configurable:true 控制属性是否可以被删除，默认值是false</p>
-</li>
-<li>
-<p>get() &amp; set()</p>
+<h3 id="五数据代理">五、数据代理</h3>
+<ol type="1">
+<li><p>enumerable: true 控制属性是否可以枚举，默认为false；</p></li>
+<li><p>writable: true 控制属性是否可以被修改，默认为false</p></li>
+<li><p>configurable:true 控制属性是否可以被删除，默认值是false</p></li>
+<li><p>get() &amp; set()</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">let number = 18;</span><br><span class="line">let person = &#123;</span><br><span class="line">name: &#x27;zhangsan&#x27;,</span><br><span class="line">sex: &#x27;man&#x27;,</span><br><span class="line">&#125;</span><br><span class="line">Object.defineProperty(person, &#x27;age&#x27;, &#123;</span><br><span class="line">//当有人读取age属性，get函数就会被调用，且返回值就是age的值</span><br><span class="line">get: function () &#123;</span><br><span class="line"> return number;</span><br><span class="line">&#125;,</span><br><span class="line">// 当有人修改age属性，set函数就会被调用，切回收到修改的具体值</span><br><span class="line">set(value) &#123;</span><br><span class="line">console.log(&#x27;有人将age修改为了&#x27;, value);</span><br><span class="line">number = value;</span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br><span class="line">console.log(person)</span><br></pre></td></tr></table></figure>
 <p>数据代理：通过一个对象代理对另一个对象中属性的操作</p>
-<p>Vue通过数据代理帮助读（getter）和修改（setter）_data中的属性</p>
-</li>
+<p>Vue通过数据代理帮助读（getter）和修改（setter）_data中的属性</p></li>
 </ol>
-<h3 id="六、事件处理">六、事件处理</h3>
+<h3 id="六事件处理">六、事件处理</h3>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;root&quot;&gt;</span><br><span class="line">        &lt;button v-on:click=&quot;showInfo&quot;&gt;点我提示信息&lt;/button&gt;</span><br><span class="line">        &lt;button v-on:click=&quot;showInfo2($event,11)&quot;&gt;点我提示信息&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script tyoe=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm = new Vue(&#123;</span><br><span class="line">        el: &#x27;#root&#x27;,</span><br><span class="line">        data: &#123;</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            showInfo(event) &#123;</span><br><span class="line">                console.log(event.target.innerText)</span><br><span class="line">                // 所有被vue管理的函数都不要写成箭头函数</span><br><span class="line">                console.log(this) // 这里的this是vm或者组件实例对象</span><br><span class="line">                alert(&#x27;Hello&#x27;)</span><br><span class="line">            &#125;,</span><br><span class="line">            showInfo2(event, number) &#123;</span><br><span class="line">                console.log(event.target.innerText)</span><br><span class="line">                // 所有被vue管理的函数都不要写成箭头函数</span><br><span class="line">                alert(number)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="七、事件修饰符">七、事件修饰符</h3>
-<ol>
+<h3 id="七事件修饰符">七、事件修饰符</h3>
+<ol type="1">
 <li>prevent: 阻止默认事件</li>
 <li>stop: 阻止事件冒泡</li>
 <li>once: 事件只触发一次</li>
@@ -211,10 +199,9 @@
 <li>passive: 事件的默认行为立即执行，无需等待事件回调执行完毕</li>
 <li>修饰符可以连续写</li>
 </ol>
-<h3 id="八、键盘事件">八、键盘事件</h3>
-<ol>
-<li>
-<p>常用按键别名</p>
+<h3 id="八键盘事件">八、键盘事件</h3>
+<ol type="1">
+<li><p>常用按键别名</p>
 <p>enter</p>
 <p>delete</p>
 <p>esc</p>
@@ -223,26 +210,19 @@
 <p>up</p>
 <p>down</p>
 <p>left</p>
-<p>right</p>
-</li>
-<li>
-<p>Vue 未提供别名的按键，可以使用按键原始的key值去绑定，但要注意转为kebab-case(短横线命名)</p>
-</li>
-<li>
-<p>系统修饰键：ctrl、alt、shift、meta</p>
-<ol>
+<p>right</p></li>
+<li><p>Vue 未提供别名的按键，可以使用按键原始的key值去绑定，但要注意转为kebab-case(短横线命名)</p></li>
+<li><p>系统修饰键：ctrl、alt、shift、meta</p>
+<ol type="1">
 <li>配合keyup：按下修饰键的同时，再按下其他键，随后释放其他键，事件才被触发</li>
 <li>配合keydown使用：正常触发事件</li>
+</ol></li>
+<li><p>Vue.config.keycode.自定义键名 = 键码，可以自定义按键别名</p></li>
 </ol>
-</li>
-<li>
-<p>Vue.config.keycode.自定义键名 = 键码，可以自定义按键别名</p>
-</li>
-</ol>
-<h3 id="九、计算属性">九、计算属性</h3>
+<h3 id="九计算属性">九、计算属性</h3>
 <p>Note：无法实现异步计算（此时可以借助监视属性）</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">       const vm = new Vue(&#123;</span><br><span class="line">           el: &#x27;#root&#x27;,</span><br><span class="line">           data: &#123;</span><br><span class="line">               firstName: &#x27;张&#x27;,</span><br><span class="line">               lastName: &#x27;三&#x27;</span><br><span class="line">           &#125;,</span><br><span class="line">           computed: &#123;</span><br><span class="line">               // fullName: &#123;</span><br><span class="line">               //     // 当有人读取fullName的时候，get()就会被调用，其返回值就会被作为fullName的值</span><br><span class="line">               //     // get什么时候调用？ 1.初次读取fullName时 2.所依赖的数据发生变化时</span><br><span class="line">               //     get() &#123;</span><br><span class="line">               //         return this.firstName + &#x27;-&#x27; + this.lastName</span><br><span class="line">               //     &#125;,</span><br><span class="line">               //     set(value) &#123;</span><br><span class="line">               //         const arr = value.split(&#x27;-&#x27;)</span><br><span class="line">               //         this.firstName = arr[0]</span><br><span class="line">               //         this.lastName = arr[2]</span><br><span class="line"></span><br><span class="line">               //     &#125;</span><br><span class="line">               // &#125;</span><br><span class="line">               // 简写：确定不用修改的时候</span><br><span class="line">               fullName() &#123;</span><br><span class="line">                   return this.firstName + &#x27;-&#x27; + this.lastName</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;)</span><br><span class="line">   &lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="十、监视属性">十、监视属性</h3>
+<h3 id="十监视属性">十、监视属性</h3>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm = new Vue(&#123;</span><br><span class="line">        el: &#x27;#root&#x27;,</span><br><span class="line">        data: &#123;</span><br><span class="line">            isHot: true</span><br><span class="line">        &#125;,</span><br><span class="line">        computed: &#123;</span><br><span class="line">            info() &#123;</span><br><span class="line">                return this.isHot ? &#x27;炎热&#x27; : &#x27;凉爽&#x27;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            changeWeather() &#123;</span><br><span class="line">                this.isHot = !this.isHot</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        watch: &#123;</span><br><span class="line">             info: &#123;</span><br><span class="line">                 immediate: true,  // 初始化时让handler调用一下</span><br><span class="line">                 handler(newValue, oldValue) &#123;</span><br><span class="line">                     console.log(&#x27;isHot被修改了&#x27;, newValue, oldValue)</span><br><span class="line">                 &#125;</span><br><span class="line"></span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <p>或者</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vm.$watch(&#x27;info&#x27;, &#123;</span><br><span class="line">        immediate: true,  // 初始化时让handler调用一下</span><br><span class="line">        handler(newValue, oldValue) &#123;</span><br><span class="line">            //console.log(&#x27;isHot被修改了&#x27;, newValue, oldValue)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
@@ -253,266 +233,200 @@
 <p>不需要immediate和deep的时候之间把handler的传入变量给info就可以</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">            info(newValue, oldValue) &#123;</span><br><span class="line">                console.log(&#x27;isHot被修改了&#x27;, newValue, oldValue)</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">// 或者</span><br><span class="line"> vm.$watch(&#x27;info&#x27;,</span><br><span class="line">        function (newValue, oldValue) &#123;</span><br><span class="line">            console.log(&#x27;isHot被修改了&#x27;, newValue, oldValue)</span><br><span class="line"></span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure>
 <p>computed 和 watch之间的区别:</p>
-<ol>
+<ol type="1">
 <li>computed能完成的功能，watch都能完成</li>
 <li>watch能完成的功能，computed不一定能完成，例如:watch可以进行一步操作</li>
 </ol>
 <p>编写原则：</p>
-<ol>
+<ol type="1">
 <li>所有被Vue管理的函数，最好写成普通函数，这样this的指向才是vm或组件实例对象</li>
 <li>所有不被Vue所管理的函数（定时器的回调函数，ajax的回调函数等），最好写成箭头函数，这样this的指向才是vm或组件实例对象</li>
 </ol>
-<h3 id="十一、绑定样式">十一、绑定样式</h3>
-<ol>
-<li>
-<p>绑定class样式</p>
+<h3 id="十一绑定样式">十一、绑定样式</h3>
+<ol type="1">
+<li><p>绑定class样式</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;root&quot;&gt;</span><br><span class="line">        &lt;!-- 适用于样式类名不确定，需要动态指定 --&gt;</span><br><span class="line">        &lt;div class=&quot;basic&quot; :class=&quot;mood&quot; @click=&quot;changeMood&quot;&gt;&lt;/div&gt; &lt;br /&gt; &lt;br /&gt;</span><br><span class="line">        &lt;!-- 要绑定的样式个数不确定、名字也不确定 --&gt;</span><br><span class="line">        &lt;div class=&quot;basic&quot; :class=&quot;classArr&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;!-- 样式个数确定、名字确定、但要动态决定用不用 --&gt;</span><br><span class="line">        &lt;div class=&quot;basic&quot; :class=&quot;classObj&quot;&gt;&lt;/div&gt;</span><br><span class="line">        </span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    Vue.config.devtools = true</span><br><span class="line">    const vm = new Vue(&#123;</span><br><span class="line">        el: &#x27;#root&#x27;,</span><br><span class="line">        data: &#123;</span><br><span class="line">            mood: &#x27;normal&#x27;,</span><br><span class="line">            classArr: [&#x27;happy&#x27;, &#x27;sad&#x27;, &#x27;normal&#x27;],</span><br><span class="line">            classObj: &#123;</span><br><span class="line">                happy: false,</span><br><span class="line">                sad: false,</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            changeMood() &#123;</span><br><span class="line">                //this.mood = &#x27;happy&#x27; </span><br><span class="line">                const arr = [&#x27;happy&#x27;, &#x27;sad&#x27;, &#x27;normal&#x27;]</span><br><span class="line">                index = Math.floor(Math.random() * 3)</span><br><span class="line">                this.mood = arr[index]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li>
-<p>绑定style样式</p>
-</li>
-<li>
-<pre><code>&lt;div class=&quot;basic&quot; :style=&quot;styleObj&quot;&gt;Simone&lt;/div&gt;
-styleObj: &#123;
-                fontSize: '40px'
-            &#125;
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">### 十二、渲染</span><br><span class="line"></span><br><span class="line">1. 条件渲染</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-&lt;body&gt;
-    &lt;div id=&quot;root&quot;&gt;
-        &lt;!-- 切换频率高用V-show，频率低的用v-if（会删除DOM中的节点） --&gt;
-        &lt;h2 v-show=&quot;show&quot; show&gt;欢迎&lt;/h2&gt;
-        &lt;h2 v-if=&quot;show&quot; show&gt;欢迎&lt;/h2&gt;
-        &lt;!-- template只能与v-if连用 --&gt;
-        &lt;template v-if=&quot;n===1&quot;&gt;
-            &lt;h2&gt;simone&lt;/h2&gt;
-            &lt;h2&gt;fukka&lt;/h2&gt;
+<p>​</p></li>
+<li><p>绑定style样式</p></li>
+<li><p>``` &lt;div class="basic" :style="styleObj"&gt;Simone</p>
 
-        &lt;/template&gt;
-    &lt;/div&gt;
-
-&lt;/body&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-    new Vue(&#123;
-        el: '#root',
-        data: &#123;
-            n: 1,
-            show: false,
-        &#125;
-    &#125;)
-&lt;/script&gt;
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. 列表渲染</span><br><span class="line"></span><br><span class="line">   **面试题：react、vue中的key有什么作用？（key的内部原理）**</span><br><span class="line"></span><br><span class="line">   1. 虚拟DOM中key的作用：</span><br><span class="line">     key是虚拟DOM对象的标识，当数据发生变化时，Vue会根据【新数据】生成【新的虚拟DOM】，</span><br><span class="line">     随后Vue进行【新虚拟DOM】与【旧虚拟DOM】的差异比较，比较规则如下：</span><br><span class="line"></span><br><span class="line">   2. 对比规则：</span><br><span class="line">     (1). 旧虚拟DOM中找到了与新虚拟DOM相同的key：</span><br><span class="line">     ①. 若虚拟DOM中内容没变，直接使用之前的真实DOM！</span><br><span class="line">     ②. 若虚拟DOM中内容变了，则生成新的真实DOM，随后替换掉页面中之前的真实DOM。</span><br><span class="line"></span><br><span class="line">     (2). 旧虚拟DOM中未找到与新虚拟DOM相同的key</span><br><span class="line"></span><br><span class="line">     创建新的真实DOM，随后渲染到页面。</span><br><span class="line"></span><br><span class="line">   3. 用index作为key可能会引发的问题：</span><br><span class="line">   4. 若对数据进行：逆序添加、逆序删除等破坏顺序操作：</span><br><span class="line">     会产生没有必要的真实DOM更新 ==&gt; 界面效果没问题，但效率低。</span><br><span class="line">   5. 如果结构中还包含输入类的DOM：</span><br><span class="line">     会产生错误DOM更新 ==&gt; 界面有问题。</span><br><span class="line"></span><br><span class="line">   6. 开发中如何选择key?：</span><br><span class="line"></span><br><span class="line">      最好使用每条数据的唯一标识作为key，比如id、手机号、身份证号、学号等唯一值。</span><br><span class="line"></span><br><span class="line">      如果不存在对数据的逆序添加、逆序删除等破坏顺序操作，仅用于渲染列表用于展示，</span><br><span class="line">      使用index作为key是没有问题的。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-&lt;body&gt;
-    &lt;div id=&quot;root&quot;&gt;
-        &lt;ul&gt;
-            &lt;li v-for=&quot;p in persons&quot; :key=&quot;p.id&quot;&gt;
-                &#123;&#123;p.name&#125;&#125;-&#123;&#123;p.age&#125;&#125;
-            &lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/div&gt;
-
-&lt;/body&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-    new Vue(&#123;
-        el: '#root',
-        data: &#123;
-            persons: [
-                &#123; id: '001', name: '张三', age: 19 &#125;,
-                &#123; id: '002', name: '李四', age: 19 &#125;,
-                &#123; id: '003', name: '王五', age: 19 &#125;
-            ]
-        &#125;
-    &#125;)
-&lt;/script&gt;
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. 列表渲染</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-&lt;body&gt;
-    &lt;div id=&quot;root&quot;&gt;
-        &lt;h2&gt;人员列表&lt;/h2&gt;
-        &lt;input type=&quot;text&quot; placeholder=&quot;请输入名字&quot; v-model=&quot;keyWord&quot;&gt;
-        &lt;ul&gt;
-            &lt;li v-for=&quot;p in filPersons&quot; :key=&quot;p.id&quot;&gt;
-                &#123;&#123;p.name&#125;&#125;-&#123;&#123;p.age&#125;&#125;-&#123;&#123;p.sex&#125;&#125;
-            &lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/div&gt;
-    &lt;script type=&quot;text/javascript&quot;&gt;
-        new Vue(&#123;
-            el: '#root',
-            data: &#123;
-                keyWord: '',
-                persons: [
-                    &#123; id: '001', name: '深泽辰哉', age: '19', sex: '男' &#125;,
-                    &#123; id: '002', name: '木村拓哉', age: '22', sex: '男' &#125;,
-                    &#123; id: '003', name: '村上信五', age: '19', sex: '男' &#125;,
-                    &#123; id: '004', name: '织田信长', age: '109', sex: '男' &#125;,
-                ],
-            &#125;,
-            // 用watch实现
-            //#region
-            /* watch: &#123;
-                keyWord: &#123;
-                    immediate: true, // 立即执行
-                    handler(val) &#123;
-                        this.filPersons = this.persons.filter((p) =&gt; &#123;
-                            return p.name.indexOf(val) !== -1
-                        &#125;)
-                    &#125;
-                &#125;
-
-            &#125; */
-            //#endregion
-            // 用computed实现
-            computed: &#123;
-                filPersons() &#123;
-                    return this.persons.filter((p) =&gt; &#123;
-                        return p.name.indexOf(this.keyWord) !== -1
-                    &#125;)
-                &#125;
-            &#125;
-        &#125;)
-    &lt;/script&gt;
-&lt;/body&gt;
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4. 列表排序	</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-computed: &#123;
-                filPersons() &#123;
-                    const arr = this.persons.filter((p) =&gt; &#123;
-                        return p.name.indexOf(this.keyWord) !== -1
-                    &#125;)
-                    if (this.sortType) &#123;
-                        arr.sort((p1, p2) =&gt; &#123;
-                            return this.sortType === 1 ? p2.age - p1.age : p1.age - p2.age
-                        &#125;)
-                    &#125;
-                    return arr
-                &#125;
-            &#125;
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 十三、Vue 数据监测总结</span><br><span class="line"></span><br><span class="line">Vue监视数据的原理:</span><br><span class="line"></span><br><span class="line">1. vue会监视data中所有层次的数据。</span><br><span class="line">2. 如何监测对象中的数据？</span><br><span class="line">   通过setter实现监视，且要在new Vue时就传入要监测的数据。</span><br><span class="line">   (1).对象中后追加的属性，Vue默认不做响应式处理</span><br><span class="line">   (2).如需给后添加的属性做响应式，使用如下API：</span><br><span class="line">      Vue.set(target, propertyName/index, value) 或</span><br><span class="line">      vm.$set(target, propertyName/index, value)</span><br><span class="line">3. 如何监测数组中的数据？</span><br><span class="line">   通过包裹数组更新元素的方法实现，本质就是做了两件事：</span><br><span class="line">   (1).调用原生对应的方法对数组进行更新。</span><br><span class="line">   (2).重新解析模板，进而更新页面。</span><br><span class="line">4. 在Vue修改数组中的某个元素一定要用如下方法：</span><br><span class="line">   1.使用这些API:push()、pop()、shift()、unshift()、splice()、sort()、reverse()</span><br><span class="line">   2.Vue.set() 或 vm.$set()</span><br><span class="line"></span><br><span class="line">特别注意：Vue.set() 和 vm.$set() 不能给vm 或 vm的根数据对象添加属性！！!</span><br><span class="line"></span><br><span class="line">### 十四、收集表单数据</span><br><span class="line"></span><br><span class="line">收集表单数据：</span><br><span class="line">若：&lt;input type=&quot;text&quot;/&gt;，则v-model收集的是value值，用户输入的就是value值。</span><br><span class="line">若：&lt;input type=&quot;radio&quot;/&gt;，则v-model收集的是value值，且要给标签配置value值。</span><br><span class="line">若：&lt;input type=&quot;checkbox&quot;/&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
-<li>
-<p>没有配置input的value属性，那么收集的就是checked（勾选 or 未勾选，是布尔值）</p>
-</li>
-<li>
-<p>配置input的value属性：<br>
-(1)v-model的初始值是非数组，那么收集的就是checked（勾选 or 未勾选，是布尔值）<br>
-(2)v-model的初始值是数组，那么收集的就是value组成的数组</p>
-</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">备注：v-model的三个修饰符：</span><br><span class="line">lazy：失去焦点再收集数据</span><br><span class="line">number：输入字符串转为有效的数字</span><br><span class="line">trim：输入首尾空格过滤</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>styleObj: { fontSize: '40px' } <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">### 十二、渲染</span><br><span class="line"></span><br><span class="line">1. 条件渲染</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
 <body>
-    <div id="root">
-        <form @submit.prevent="demo">
-            账号:<input type="text" v-model.trim="userInfo.account"> <br><br> # 忽略无效空格
-            密码: <input type="password" v-model="userInfo.password"> <br><br>
-            年龄: <input type="number" v-model.number="userInfo.age"> <br><br> # 这两个number一般同时使用
-            性别:
-            女<input type="radio" name="sex" value="male" v-model="userInfo.sex">
-            男<input type="radio" name="sex" value="famale" v-model="userInfo.sex"> <br><br>
-            爱好：
-            学习<input type="checkbox" v-model="userInfo.hobby" value="study">
-            吃饭<input type="checkbox" v-model="userInfo.hobby" value="eat"> <br><br>
-            所属校区：
-            <select v-model="userInfo.city">
-                <option value>请选择校区</option>
-                <option value="beijing">北京</option>
-                <option value="shanghai">上海</option>
-                <option value="shenzhen">深圳</option>
-            </select>
-            <br><br>
-            其他信息:
-            <textarea v-model.lazy="userInfo.other"></textarea> <br><br> #不实时收集
-            <input type="checkbox" v-model="userInfo.agree">阅读并接受用户协议 <br><br>
-            <button>提交</button>
-        </form>
-    </div>
-</body>
+<div id="root">
+<pre><code>    &lt;!-- 切换频率高用V-show，频率低的用v-if（会删除DOM中的节点） --&gt;
+    &lt;h2 v-show=&quot;show&quot; show&gt;欢迎&lt;/h2&gt;
+    &lt;h2 v-if=&quot;show&quot; show&gt;欢迎&lt;/h2&gt;
+    &lt;!-- template只能与v-if连用 --&gt;
+    &lt;template v-if=&quot;n===1&quot;&gt;
+        &lt;h2&gt;simone&lt;/h2&gt;
+        &lt;h2&gt;fukka&lt;/h2&gt;
+
+    &lt;/template&gt;
+&lt;/div&gt;</code></pre>
+</div></body>
 <script type="text/javascript">
-    Vue.config.devtools = true
-    const vm = new Vue({
+    new Vue({
         el: '#root',
         data: {
-            userInfo: {
-                account: '',
-                password: '',
-                age: '',
-                sex: '',
-                hobby: [],
-                city: '',
-                other: '',
-                agree: '',
-            }
-<pre><code>    &#125;,
-    methods: &#123;
-        demo() &#123;
-            console.log(JSON.stringify(this.userInfo))
-        &#125;
-    &#125;,
-
-&#125;)
-</code></pre>
+            n: 1,
+            show: false,
+        }
+    })
 </script>
-```
-<h3 id="十五、Vue内置指令">十五、Vue内置指令</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. 列表渲染</span><br><span class="line"></span><br><span class="line">   **面试题：react、vue中的key有什么作用？（key的内部原理）**</span><br><span class="line"></span><br><span class="line">   1. 虚拟DOM中key的作用：</span><br><span class="line">     key是虚拟DOM对象的标识，当数据发生变化时，Vue会根据【新数据】生成【新的虚拟DOM】，</span><br><span class="line">     随后Vue进行【新虚拟DOM】与【旧虚拟DOM】的差异比较，比较规则如下：</span><br><span class="line"></span><br><span class="line">   2. 对比规则：</span><br><span class="line">     (1). 旧虚拟DOM中找到了与新虚拟DOM相同的key：</span><br><span class="line">     ①. 若虚拟DOM中内容没变，直接使用之前的真实DOM！</span><br><span class="line">     ②. 若虚拟DOM中内容变了，则生成新的真实DOM，随后替换掉页面中之前的真实DOM。</span><br><span class="line"></span><br><span class="line">     (2). 旧虚拟DOM中未找到与新虚拟DOM相同的key</span><br><span class="line"></span><br><span class="line">     创建新的真实DOM，随后渲染到页面。</span><br><span class="line"></span><br><span class="line">   3. 用index作为key可能会引发的问题：</span><br><span class="line">   4. 若对数据进行：逆序添加、逆序删除等破坏顺序操作：</span><br><span class="line">     会产生没有必要的真实DOM更新 ==&gt; 界面效果没问题，但效率低。</span><br><span class="line">   5. 如果结构中还包含输入类的DOM：</span><br><span class="line">     会产生错误DOM更新 ==&gt; 界面有问题。</span><br><span class="line"></span><br><span class="line">   6. 开发中如何选择key?：</span><br><span class="line"></span><br><span class="line">      最好使用每条数据的唯一标识作为key，比如id、手机号、身份证号、学号等唯一值。</span><br><span class="line"></span><br><span class="line">      如果不存在对数据的逆序添加、逆序删除等破坏顺序操作，仅用于渲染列表用于展示，</span><br><span class="line">      使用index作为key是没有问题的。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<body>
+<div id="root">
+<pre><code>    &lt;ul&gt;
+        &lt;li v-for=&quot;p in persons&quot; :key=&quot;p.id&quot;&gt;
+            &#123;&#123;p.name&#125;&#125;-&#123;&#123;p.age&#125;&#125;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+</div></body>
+<script type="text/javascript">
+    new Vue({
+        el: '#root',
+        data: {
+            persons: [
+                { id: '001', name: '张三', age: 19 },
+                { id: '002', name: '李四', age: 19 },
+                { id: '003', name: '王五', age: 19 }
+            ]
+        }
+    })
+</script>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. 列表渲染</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<body>
+<div id="root">
+<pre><code>    &lt;h2&gt;人员列表&lt;/h2&gt;
+    &lt;input type=&quot;text&quot; placeholder=&quot;请输入名字&quot; v-model=&quot;keyWord&quot;&gt;
+    &lt;ul&gt;
+        &lt;li v-for=&quot;p in filPersons&quot; :key=&quot;p.id&quot;&gt;
+            &#123;&#123;p.name&#125;&#125;-&#123;&#123;p.age&#125;&#125;-&#123;&#123;p.sex&#125;&#125;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    new Vue(&#123;
+        el: &#39;#root&#39;,
+        data: &#123;
+            keyWord: &#39;&#39;,
+            persons: [
+                &#123; id: &#39;001&#39;, name: &#39;深泽辰哉&#39;, age: &#39;19&#39;, sex: &#39;男&#39; &#125;,
+                &#123; id: &#39;002&#39;, name: &#39;木村拓哉&#39;, age: &#39;22&#39;, sex: &#39;男&#39; &#125;,
+                &#123; id: &#39;003&#39;, name: &#39;村上信五&#39;, age: &#39;19&#39;, sex: &#39;男&#39; &#125;,
+                &#123; id: &#39;004&#39;, name: &#39;织田信长&#39;, age: &#39;109&#39;, sex: &#39;男&#39; &#125;,
+            ],
+        &#125;,
+        // 用watch实现
+        //#region
+        /* watch: &#123;
+            keyWord: &#123;
+                immediate: true, // 立即执行
+                handler(val) &#123;
+                    this.filPersons = this.persons.filter((p) =&gt; &#123;
+                        return p.name.indexOf(val) !== -1
+                    &#125;)
+                &#125;
+            &#125;
+
+        &#125; */
+        //#endregion
+        // 用computed实现
+        computed: &#123;
+            filPersons() &#123;
+                return this.persons.filter((p) =&gt; &#123;
+                    return p.name.indexOf(this.keyWord) !== -1
+                &#125;)
+            &#125;
+        &#125;
+    &#125;)
+&lt;/script&gt;</code></pre>
+</div></body>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4. 列表排序	</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>computed: { filPersons() { const arr = this.persons.filter((p) =&gt; { return p.name.indexOf(this.keyWord) !== -1 }) if (this.sortType) { arr.sort((p1, p2) =&gt; { return this.sortType === 1 ? p2.age - p1.age : p1.age - p2.age }) } return arr } } <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 十三、Vue 数据监测总结</span><br><span class="line"></span><br><span class="line">Vue监视数据的原理:</span><br><span class="line"></span><br><span class="line">1. vue会监视data中所有层次的数据。</span><br><span class="line">2. 如何监测对象中的数据？</span><br><span class="line">   通过setter实现监视，且要在new Vue时就传入要监测的数据。</span><br><span class="line">   (1).对象中后追加的属性，Vue默认不做响应式处理</span><br><span class="line">   (2).如需给后添加的属性做响应式，使用如下API：</span><br><span class="line">      Vue.set(target, propertyName/index, value) 或</span><br><span class="line">      vm.$set(target, propertyName/index, value)</span><br><span class="line">3. 如何监测数组中的数据？</span><br><span class="line">   通过包裹数组更新元素的方法实现，本质就是做了两件事：</span><br><span class="line">   (1).调用原生对应的方法对数组进行更新。</span><br><span class="line">   (2).重新解析模板，进而更新页面。</span><br><span class="line">4. 在Vue修改数组中的某个元素一定要用如下方法：</span><br><span class="line">   1.使用这些API:push()、pop()、shift()、unshift()、splice()、sort()、reverse()</span><br><span class="line">   2.Vue.set() 或 vm.$set()</span><br><span class="line"></span><br><span class="line">特别注意：Vue.set() 和 vm.$set() 不能给vm 或 vm的根数据对象添加属性！！!</span><br><span class="line"></span><br><span class="line">### 十四、收集表单数据</span><br><span class="line"></span><br><span class="line">收集表单数据：</span><br><span class="line">若：&lt;input type=&quot;text&quot;/&gt;，则v-model收集的是value值，用户输入的就是value值。</span><br><span class="line">若：&lt;input type=&quot;radio&quot;/&gt;，则v-model收集的是value值，且要给标签配置value值。</span><br><span class="line">若：&lt;input type=&quot;checkbox&quot;/&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li>
+<li><p>没有配置input的value属性，那么收集的就是checked（勾选 or 未勾选，是布尔值）</p></li>
+<li><p>配置input的value属性： (1)v-model的初始值是非数组，那么收集的就是checked（勾选 or 未勾选，是布尔值） (2)v-model的初始值是数组，那么收集的就是value组成的数组 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">备注：v-model的三个修饰符：</span><br><span class="line">lazy：失去焦点再收集数据</span><br><span class="line">number：输入字符串转为有效的数字</span><br><span class="line">trim：输入首尾空格过滤</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<body>
+<div id="root">
+<p>&lt;form <span class="citation" data-cites="submit.prevent">@submit.prevent</span>="demo"&gt; 账号:&lt;input type="text" v-model.trim="userInfo.account"&gt; <br><br> # 忽略无效空格 密码: <input type="password" v-model="userInfo.password"> <br><br> 年龄: &lt;input type="number" v-model.number="userInfo.age"&gt; <br><br> # 这两个number一般同时使用 性别: 女<input type="radio" name="sex" value="male" v-model="userInfo.sex"> 男<input type="radio" name="sex" value="famale" v-model="userInfo.sex"> <br><br> 爱好： 学习<input type="checkbox" v-model="userInfo.hobby" value="study"> 吃饭<input type="checkbox" v-model="userInfo.hobby" value="eat"> <br><br> 所属校区： <select v-model="userInfo.city"> <option value>请选择校区</option> <option value="beijing">北京</option> <option value="shanghai">上海</option> <option value="shenzhen">深圳</option> </select> <br><br> 其他信息: &lt;textarea v-model.lazy="userInfo.other"&gt;</p>
+
+<p><br><br> #不实时收集 <input type="checkbox" v-model="userInfo.agree">阅读并接受用户协议 <br><br> <button>提交</button></p>
+
+<pre><code>&lt;/div&gt;</code></pre>
+</div></body>
+<script type="text/javascript">
+<p>Vue.config.devtools = true const vm = new Vue({ el: '#root', data: { userInfo: { account: '', password: '', age: '', sex: '', hobby: [], city: '', other: '', agree: '', }</p>
+<p>}, methods: { demo() { console.log(JSON.stringify(this.userInfo)) } },</p></li>
+</ol>
+<pre><code>&#125;)</code></pre>
+</script>
+<p>```</p>
+<h3 id="十五vue内置指令">十五、Vue内置指令</h3>
 <p><strong>v-text指令：</strong></p>
-<ol>
+<ol type="1">
 <li>作用：向其所在的节点中渲染文本内容。</li>
 <li>与插值语法的区别：v-text会替换掉节点中的内容，则不会。</li>
 </ol>
 <p><strong>v-html指令：</strong></p>
-<ol>
+<ol type="1">
 <li>作用：向指定节点中渲染包含html结构的内容。</li>
-<li>与插值语法的区别：<br>
-(1) v-html会替换掉节点中所有的内容，则不会。<br>
-(2) v-html可以识别html结构。</li>
-<li>严重注意：v-html有安全性问题！！！<br>
-(1) 在网站上动态渲染任意HTML是非常危险的，容易导致XSS（跨站脚本攻击）攻击。<br>
-(2) 一定要在可信的内容上使用v-html，永不要用在用户提交的内容上！</li>
+<li>与插值语法的区别：
+<ol type="1">
+<li>v-html会替换掉节点中所有的内容，则不会。</li>
+<li>v-html可以识别html结构。</li>
+</ol></li>
+<li>严重注意：v-html有安全性问题！！！
+<ol type="1">
+<li>在网站上动态渲染任意HTML是非常危险的，容易导致XSS（跨站脚本攻击）攻击。</li>
+<li>一定要在可信的内容上使用v-html，永不要用在用户提交的内容上！</li>
+</ol></li>
 </ol>
 <p><strong>v-cloak指令（没有值）：</strong></p>
-<ol>
+<ol type="1">
 <li>本质是一个特殊属性，Vue实例创建完毕并接管容器后，会删掉v-cloak属性。</li>
 <li>使用css配合v-cloak可以解决网速慢时页面展示出的问题。</li>
 </ol>
 <p><strong>v-once指令：</strong></p>
-<ol>
+<ol type="1">
 <li>v-once所在节点在初次动态渲染后，就视为静态内容了。</li>
 <li>以后数据的改变不会引起v-once所在结构的更新，可以用于优化性能。</li>
 </ol>
 <p><strong>v-pre指令：</strong></p>
-<ol>
+<ol type="1">
 <li>跳过其所在节点的编译过程。</li>
 <li>可利用它跳过：没有使用指令语法、没有使用插值语法的节点，会加快编译。</li>
 </ol>
-<h3 id="十六、自定义指令">十六、自定义指令</h3>
+<h3 id="十六自定义指令">十六、自定义指令</h3>
 <p>一、定义语法：</p>
-<ol>
+<ol type="1">
 <li>局部指令：new Vue({directives:{指令名:配置对象} 或 new Vue({directives:{指令名:回调函数}})</li>
 <li>全局指令：Vue.directive(指令名,配置对象) 或 Vue.directive(指令名,回调函数)</li>
 </ol>
 <p>二、配置对象中常用的3个回调：</p>
-<ol>
+<ol type="1">
 <li>bind：指令与元素成功绑定时调用。</li>
 <li>inserted：指令所在元素被插入页面时调用。</li>
 <li>update：指令所在模板结构被重新解析时调用。</li>
 </ol>
 <p>三、备注：</p>
-<ol>
+<ol type="1">
 <li>指令定义时不加v-，但使用时要加v-；</li>
 <li>指令名如果是多个单词，要使用kebab-case命名方式，不要用camelCase命名。</li>
 </ol>
-<h3 id="十七、生命周期">十七、生命周期</h3>
+<h3 id="十七生命周期">十七、生命周期</h3>
 <p><img src="https://cn.vuejs.org/assets/lifecycle_zh-CN.W0MNXI0C.png" alt="生命周期"><strong>常用的生命周期钩子：</strong></p>
-<ol>
+<ol type="1">
 <li>mounted：发送ajax请求、启动定时器、绑定自定义事件、订阅消息等【初始化操作】。</li>
 <li>beforeDestroy：清除定时器、解绑自定义事件、取消订阅消息等【收尾工作】。</li>
 </ol>
 <p><strong>关于销毁Vue实例</strong></p>
-<ol>
+<ol type="1">
 <li>销毁后借助Vue开发者工具看不到任何信息。</li>
 <li>销毁后自定义事件会失效，但原生DOM事件依然有效。</li>
 <li>一般不会再beforeDestroy操作数据，因为即便操作数据，也不会再触发更新流程了。</li>
 </ol>
-
+</li></ol>
                 
                 <div class="post-date" style="position: absolute; top: 10px; right: 10px; font-size: 14px; color: #888; background-color: rgba(255, 255, 255, 0.7); padding: 5px; border-radius: 5px;">
                     2025-03-17

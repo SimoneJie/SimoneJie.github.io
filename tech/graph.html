@@ -151,7 +151,7 @@
             
             <!-- Post -->
             <div class="typo" style="padding: 3rem; position: relative;">
-                <h1>Graph</h1>
+                <h1 id="graph">Graph</h1>
 <p><strong>一、DFS</strong></p>
 <p>通常使用递归完成</p>
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/number-of-islands/description/?envType=study-plan-v2&amp;envId=top-100-liked">200. 岛屿数量 - 力扣（LeetCode）</a></p>
@@ -164,16 +164,10 @@
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/course-schedule/description/?envType=study-plan-v2&amp;envId=top-100-liked">207. 课程表 - 力扣（LeetCode）</a></p>
 <p>把一个有向无环图转成线性的排序就叫<strong>拓扑排序</strong>。</p>
 <p>基本思路：采用队列和邻接表维护。</p>
-<ol>
-<li>
-<p>创建所给邻接表，入度为0元素入队。</p>
-</li>
-<li>
-<p>队列元素出队，并减少邻接表中依赖该元素的入度值。</p>
-</li>
-<li>
-<p>将入度为0的元素入队，循环过程2，直至不再有入度为0元素。</p>
-</li>
+<ol type="1">
+<li><p>创建所给邻接表，入度为0元素入队。</p></li>
+<li><p>队列元素出队，并减少邻接表中依赖该元素的入度值。</p></li>
+<li><p>将入度为0的元素入队，循环过程2，直至不再有入度为0元素。</p></li>
 </ol>
 
                 

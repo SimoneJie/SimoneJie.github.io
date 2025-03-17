@@ -151,63 +151,34 @@
             
             <!-- Post -->
             <div class="typo" style="padding: 3rem; position: relative;">
-                <h1>VUE(二)</h1>
-<h3 id="一、组件">一、组件</h3>
+                <h1 id="vue二">VUE(二)</h1>
+<h3 id="一组件">一、组件</h3>
 <p>组件的定义：实现应用中局部功能代码和资源的集合</p>
 <p>非单文件组件：一个文件中包含n个组件。</p>
 <p>单文件组件：一个文件中只包含1个组件。</p>
-<p><strong>Vue中使用组件的三大步骤：</strong><br>
-一、定义组件(创建组件)<br>
-二、注册组件<br>
-三、使用组件(写组件标签)</p>
-<p>一、如何定义一个组件？<br>
-使用Vue.extend(options)创建，其中options和new Vue(options)时传入的那个options几乎一样，但也有点区别：<br>
-区别如下：</p>
-<ol>
-<li>el不要写，为什么？—— 最终所有的组件都要经过一个vm的管理，由vm中的el决定服务哪个容器。</li>
-<li>data必须写成函数，为什么？—— 避免组件被复用时，数据存在引用关系。<br>
-备注：使用template可以配置组件结构。</li>
-</ol>
-<p>二、如何注册组件？</p>
-<ol>
-<li>局部注册：靠new Vue的时候传入components选项</li>
-<li>全局注册：靠Vue.component(‘组件名’,组件)</li>
-</ol>
-<p>三、编写组件标签：<br>
-<school></school></p>
+<p><strong>Vue中使用组件的三大步骤：</strong> 一、定义组件(创建组件) 二、注册组件 三、使用组件(写组件标签)</p>
+<p>一、如何定义一个组件？ 使用Vue.extend(options)创建，其中options和new Vue(options)时传入的那个options几乎一样，但也有点区别： 区别如下： 1. el不要写，为什么？—— 最终所有的组件都要经过一个vm的管理，由vm中的el决定服务哪个容器。 2. data必须写成函数，为什么？—— 避免组件被复用时，数据存在引用关系。 备注：使用template可以配置组件结构。</p>
+<p>二、如何注册组件？ 1. 局部注册：靠new Vue的时候传入components选项 2. 全局注册：靠Vue.component('组件名',组件)</p>
+<p>三、编写组件标签： <school></school></p>
 <p><strong>几个注意点：</strong></p>
-<ol>
-<li>关于组件名：<br>
-一个单词组成：<br>
-第一种写法（首字母小写）：school<br>
-第二种写法（首字母大写）：School<br>
-多个单词组成：<br>
-第一种写法（kebab-case命名）：my-school<br>
-第二种写法（CamelCase命名）：MySchool（需要Vue脚手架支持）<br>
-备注：<br>
-(1). 组件名尽可能回避HTML中已有的元素名称，例如：h2、H2都不行。<br>
-(2). 可以使用name配置项指定组件在开发者工具中呈现的名字。</li>
-<li>关于组件标签：<br>
-第一种写法：<school></school><br>
-第二种写法：<school><br>
-备注：不用使用脚手架时，<school>会导致后续组件不能渲染。</school></school></li>
-<li>一个简写方式：<br>
-const school = Vue.extend(options) 可简写为：const school = options</li>
+<ol type="1">
+<li>关于组件名： 一个单词组成： 第一种写法（首字母小写）：school 第二种写法（首字母大写）：School 多个单词组成： 第一种写法（kebab-case命名）：my-school 第二种写法（CamelCase命名）：MySchool（需要Vue脚手架支持） 备注： (1). 组件名尽可能回避HTML中已有的元素名称，例如：h2、H2都不行。 (2). 可以使用name配置项指定组件在开发者工具中呈现的名字。</li>
+<li>关于组件标签： 第一种写法：<school></school> 第二种写法：<school> 备注：不用使用脚手架时，<school>会导致后续组件不能渲染。</school></school></li>
+<li>一个简写方式： const school = Vue.extend(options) 可简写为：const school = options</li>
 </ol>
 <p><strong>组件嵌套</strong>:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const student = Vue.extend(&#123;</span><br><span class="line">        name: &#x27;student&#x27;,</span><br><span class="line">        template: ` </span><br><span class="line">            &lt;div&gt;</span><br><span class="line">            &lt;h2&gt; 学生姓名：&#123;&#123;name&#125;&#125; &lt;/h2&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            `,</span><br><span class="line">        data() &#123;</span><br><span class="line">            return &#123;</span><br><span class="line">                name: &#x27;fukkawa&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    const school = Vue.extend(&#123;</span><br><span class="line">        template: ` </span><br><span class="line">            &lt;div&gt;</span><br><span class="line">            &lt;h2&gt; 学校名称：&#123;&#123;name&#125;&#125; &lt;/h2&gt;</span><br><span class="line">             &lt;student&gt;&lt;/student&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            `,</span><br><span class="line">        data() &#123;</span><br><span class="line">            return &#123;</span><br><span class="line">                name: &#x27;SHU&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        // 注册组件（局部）</span><br><span class="line">        components: &#123;</span><br><span class="line">            student</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    new Vue(&#123;</span><br><span class="line">        el: &#x27;#root&#x27;,</span><br><span class="line">        // 注册组件（局部）</span><br><span class="line">        components: &#123;</span><br><span class="line">            school,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <p><strong>VueComponent</strong>:</p>
 <p>关于VueComponent：</p>
-<ol>
+<ol type="1">
 <li>school组件本质是一个名为VueComponent的构造函数，且不是程序员定义的，是Vue.extend生成的。</li>
-<li>我们只需要写<school>或<school></school>，Vue解析时会帮我们创建school组件的实例对象，<br>
-即Vue帮我们执行的：new VueComponent(options)。</school></li>
+<li>我们只需要写<school>或<school></school>，Vue解析时会帮我们创建school组件的实例对象， 即Vue帮我们执行的：new VueComponent(options)。</school></li>
 <li>特别注意：每次调用Vue.extend，返回的都是一个全新的VueComponent</li>
-<li>关于this指向：<br>
-(1) 组件配置中：<br>
-data函数、methods中的函数、watch中的函数、computed中的函数 它们的this均是【VueComponent实例对象】。<br>
-(2) new Vue(options)配置中：<br>
-data函数、methods中的函数、watch中的函数、computed中的函数 它们的this均是【Vue实例对象】。</li>
+<li>关于this指向：
+<ol type="1">
+<li>组件配置中： data函数、methods中的函数、watch中的函数、computed中的函数 它们的this均是【VueComponent实例对象】。</li>
+<li>new Vue(options)配置中： data函数、methods中的函数、watch中的函数、computed中的函数 它们的this均是【Vue实例对象】。</li>
+</ol></li>
 </ol>
 <p><strong>内置关系：</strong></p>
 <p>VueComponent.prototype._proto_ === Vue.prototype</p>
